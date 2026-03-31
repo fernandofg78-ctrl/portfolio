@@ -1,0 +1,106 @@
+/* src/pages/Home.module.css */
+/* Estilos de la página principal */
+
+.home {
+  width: 100%;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: calc(100vh - 65px);
+  padding: 4rem 0 3rem;
+}
+
+.name {
+  font-size: clamp(5rem, 13vw, 12rem);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: var(--color-text);
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.role {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.tagline {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--color-secondary);
+  line-height: 1.6;
+  max-width: 400px;
+}
+
+.scrollHint {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+/* Seccion proyectos */
+.projects {
+  padding: 4rem 0;
+}
+
+.sectionTitle {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* Seccion contacto  */
+
+.contact {
+  padding: 6rem 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.contactTitle {
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+}
+
+.contactText {
+  font-size: 1rem;
+  color: var(--color-secondary);
+  margin-bottom: 2rem;
+}
+
+.contactLink {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--color-text);
+  border-bottom: 2px solid var(--color-text);
+  padding-bottom: 0.2rem;
+  transition: opacity 0.2s ease;
+}
+
+.contactLink:hover {
+  opacity: 0.5;
+}

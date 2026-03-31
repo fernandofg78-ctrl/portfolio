@@ -1,0 +1,69 @@
+/* src/components/projects/ProjectCard.module.css */
+/* Estilos de la card de proyecto */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  overflow: hidden;
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-4px);
+}
+
+.image {
+  aspect-ratio: 16 / 9;
+  background-color: var(--color-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.placeholder {
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--color-border);
+}
+
+.content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.description {
+  font-size: 0.9rem;
+  color: var(--color-secondary);
+  line-height: 1.5;
+}
+
+.tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  margin-top: 0.25rem;
+}
+
+.tech li {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  border-radius: 2px;
+  padding: 0.2rem 0.6rem;
+}
