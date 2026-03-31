@@ -1,29 +1,31 @@
 // src/utils/projects.js
 // Datos estáticos de los proyectos del portfolio
 
-import mazarifeImg from "../assets/images/mazarife.webp";
-import rfgImg from "../assets/images/rfg.webp";
-import santiagoImg from "../assets/images/santiago.webp";
-import tapaImg from "../assets/images/tapa.webp";
+import mazarifeImg from "../assets/images/villar.webp";
+import rfgImg from "../assets/images/pera.webp";
+import santiagoImg from "../assets/images/camino-2.webp";
+import tapaImg from "../assets/images/tapa-2.webp";
+import hangmanImg from "../assets/images/hangman.webp";
+import ferImg from "../assets/images/fer.webp";
 
 export const projects = [
   {
     id: "ahorcado",
     title: "Ahorcado Bilingüe",
     description:
-      "Juego del ahorcado en React con soporte para español e inglés.",
+      "Juego del ahorcado con un diccionario en español e inglés de 15000 palabras. Proyecto de React para practicar storgate, fetch y componentes.",
     tech: ["React"],
-    url: "https://hangman-alpha-fawn.vercel.app/hangman",
+    url: "https://hangman-alpha-fawn.vercel.app",
     repo: "https://github.com/fernandofg78-ctrl/hangman",
-    image: null,
+    image: hangmanImg,
   },
   {
     id: "mazarife",
     title: "Mazarife.es",
     description:
       "App para asociación cultural con acceso por roles y gestión de contenido.",
-    tech: ["React", "Node", "MongoDB"],
-    url: "mazarife.es",
+    tech: ["React", "Node", "Supabase", "Claude", "Sentry"],
+    url: "https://mazarife.es/",
     repo: "https://github.com/fernandofg78-ctrl/mazarife-app",
     image: mazarifeImg,
   },
@@ -39,7 +41,8 @@ export const projects = [
   {
     id: "nextapa",
     title: "Nextapa",
-    description: "App para descubrir tapas cercanas. Proyecto del máster.",
+    description:
+      "App para descubrir tapas cercanas. Proyecto colaborativo fin del máster.",
     tech: ["React", "Express", "MongoDB"],
     url: "https://nextapa.netlify.app/",
     repo: "https://github.com/FSD1125STR/TFM-amarillo-frontend",
@@ -50,7 +53,17 @@ export const projects = [
     id: "camino",
     title: "CaminoSantiago.app",
     description: "Aplicación para planificar el Camino de Santiago.",
-    tech: ["Next.js"],
+    tech: [
+      "Next.js",
+      "Supabase",
+      "Claude",
+      "Mapbox",
+      "Hono",
+      "Multiidioma",
+      "Cloudinary",
+      "Analytics",
+      "...",
+    ],
     url: "https://caminosantiago.app/",
     repo: "https://github.com/nano-tucamino/camino-app-web",
     image: santiagoImg,
@@ -63,6 +76,6 @@ export const projects = [
     tech: ["React", "Express", "MongoDB"],
     url: null,
     repo: null,
-    image: null,
+    image: ferImg,
   },
 ];
