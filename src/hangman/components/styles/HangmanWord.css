@@ -1,0 +1,54 @@
+.words-display {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+.word-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.word-row small {
+  font-size: 0.7rem;
+  color: #7f8c8d;
+  text-transform: uppercase;
+}
+
+.word-container {
+  display: flex;
+  gap: 0.3rem;
+  font-size: 2rem; 
+  font-weight: bold;
+  font-family: monospace;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.letter-slot {
+  border-bottom: 4px solid #2c3e50;
+  min-width: 25px;
+  text-align: center;
+}
+
+.letter-slot.space {
+  border-bottom: none;
+  min-width: 15px;
+}
+
+/* RECUPERADO: Lógica de visibilidad y color rojo */
+.letter-content.hidden { 
+  opacity: 0; 
+}
+
+.letter-content.visible { 
+  opacity: 1; 
+}
+
+/* Clase para revelar en rojo lo que faltó */
+.letter-content.red { 
+  color: #e74c3c; 
+  opacity: 1; 
+}

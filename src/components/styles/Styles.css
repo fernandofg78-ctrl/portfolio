@@ -1,0 +1,260 @@
+/* ===== RESET ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+html{
+
+ background: #eeeff3;
+}
+body {
+ 
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+/* ===== CALCULADORA ===== */
+.calculator {
+  /* fixed pleasant size but never wider than viewport */
+  width: min(340px, 94vw);
+  max-width: 340px;
+  background: #ffffff;
+  border-radius: 24px;
+  border: double black 7px;
+  padding: 20px;
+  box-shadow: 0 250px 250px rgba(0, 0, 0, 0.12);
+  margin: 18px auto;
+}
+
+/* ===== DISPLAY ===== */
+.display {
+  min-height: 72px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  border-radius: 16px;
+  background: #f7f8fc;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 2px;
+  overflow: hidden;
+}
+
+/* Texto del display */
+.display {
+  /* responsive size for display text */
+  font-size: clamp(22px, 5vw, 34px);
+  font-weight: 500;
+  color: #111;
+}
+
+/* ===== ANIMACIÓN DE DÍGITOS ===== */
+.digit {
+  display: inline-block;
+  animation: digitIn 0.18s ease-out;
+}
+
+@keyframes digitIn {
+  from {
+    transform: translateY(6px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ===== TECLADO ===== */
+.keyboard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+/* Small adjustments for very small screens */
+@media (max-width: 420px) {
+  .calculator { width: calc(100% - 28px); padding: 16px; }
+  .display { min-height: 60px; padding: 10px 12px; }
+  .btn { height: 48px; border-radius: 12px; }
+  .keyboard { gap: 8px; }
+}
+
+/* ===== BOTONES ===== */
+.btn {
+  height: 54px;
+  border-radius: 14px;
+  border: solid 1px black;
+  background: #f1f2f6;
+  /* responsive font for buttons */
+  font-size: clamp(14px, 3.6vw, 18px);
+  font-weight: bold;
+  color: #111;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.05s ease;
+}
+
+.btn:hover {
+  background: #e5e7ee;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* ===== OPERADORES ===== */
+.btn.operator {
+  background: #ececff;
+  color: #4a4aff;
+}
+
+.btn.operator:hover {
+  background: #dcdcff;
+}
+
+/* ===== BOTÓN IGUAL ===== */
+
+.btn.equal {
+  grid-column: span 2;
+  background: linear-gradient(135deg, #4a4aff 0%, #3b3bff 100%);
+  color: white;
+  font-weight: 600;
+  border: solid 1px #2a2aff;
+  
+  /* Centrado absoluto del contenido */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0; 
+  position: relative;
+}
+
+.btn.equal span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* Estiramos el símbolo hacia los lados */
+  transform: scaleX(4.5); 
+  
+  /* Ajustes de tipografía para que las rayas no se peguen */
+  font-size: 1.6rem;
+  line-height: 1.2;
+  
+  /* Ajuste óptico: a veces el '=' parece estar muy arriba. 
+     Con esto lo bajamos un pelín para que el ojo lo vea centrado */
+  margin-top: -3px; 
+  
+  /* Evitamos que el usuario pueda seleccionar el texto azul al clicar rápido */
+  user-select: none;
+}
+
+.btn.equal:hover {
+  background: #3b3bff;
+  box-shadow: 0 4px 12px rgba(74, 74, 255, 0.3);
+}
+
+.btn.equal:active {
+  transform: scale(0.96);
+  background: #2a2aff;
+}
+
+/* ===== BOTÓN CERO ===== */
+.btn.zero {
+  grid-column: span 2;
+}
+
+/* ===== BOTÓN CLEAR ===== */
+.btn.clear {
+  background: #ffecec;
+  color: #d43c3c;
+}
+
+.btn.clear:hover {
+  background: #ffdede;
+}
+
+
+/* =========== DISPLAY DE OPERACIONES =============*/
+
+/* ===== DISPLAY WRAPPER ===== */
+.display-wrapper {
+  position: relative;       /* Para poder superponer la operación si es necesario */
+  width: 100%;
+  height: 72px;             /* altura fija del display */
+  background: #f7f8fc;
+  border-radius: 16px;
+  border: solid 1px black;
+  padding: 8px 16px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* alinea número abajo */
+  overflow: hidden;          /* corta cualquier desbordamiento */
+}
+
+/* Operation display encima del número */
+.operation-display {
+  position: absolute;       /* sobre el display principal */
+  top: 3px;                 /* margen superior */
+  right: 16px;              /* alineado a la derecha */
+  font-size: 14px;
+  color: #141414;
+  opacity: 0.8;
+  white-space: nowrap;       /* evita que se rompa en varias líneas */
+  pointer-events: none;      /* clics pasan al display */
+  font-weight:bold;
+}
+
+/* Display principal */
+.display {
+  background: transparent;   /* eliminamos fondo */
+  padding: 0;
+  margin: 0;
+  font-size: clamp(22px, 5vw, 34px);
+  font-weight: 500;
+  color: #111;
+  line-height: 1.2;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+
+/* IMAGEN DE FONDO */
+.scene {
+  position: relative;
+  min-height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 280px;
+  transform: translateY(100px);
+}
+
+.robot {
+  position: absolute;
+  top:-400px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 660px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.calculator-wrapper {
+  position: relative;
+  z-index: 2;
+}
+
+
+.robot {
+  filter: drop-shadow(0 50px 30px rgba(0,0,0,0.25));
+}
+

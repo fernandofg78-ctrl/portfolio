@@ -1,0 +1,59 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: #f0f2f5;
+  font-family: sans-serif;
+  /* Centrado total en el documento */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hangman-app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  height: auto; /* Que se ajuste al contenido */
+  max-height: 95vh;
+  width: 100%;
+  max-width: 500px;
+  background: white; /* Añadimos fondo para que resalte en el centro */
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  gap: 10px;
+}
+
+.score-board {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  font-size: 0.9rem;
+  padding: 5px;
+  border-bottom: 1px solid #eee;
+}
+
+.result-message {
+  height: 1.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.win { color: #27ae60; }
+/* RECUPERADO: Estilo rojo para el mensaje de derrota */
+.lose { color: #e74c3c; }
+
+.reset-btn {
+  padding: 10px 30px;
+  background: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}

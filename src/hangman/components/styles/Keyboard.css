@@ -1,0 +1,34 @@
+.keyboard-container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); 
+  gap: 8px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.key-btn {
+  border: none;
+  background: #f8f9fa;
+  border-radius: 6px;
+  aspect-ratio: 1/1;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #2c3e50;
+  cursor: pointer;
+  box-shadow: 0 3px 0 #bdc3c7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.key-btn.active {
+  background: #3498db;
+  color: white;
+  box-shadow: 0 3px 0 #2980b9;
+}
+
+.key-btn.inactive {
+  background: #ecf0f1;
+  color: #bdc3c7;
+  box-shadow: none;
+}

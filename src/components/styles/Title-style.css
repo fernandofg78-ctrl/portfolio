@@ -1,0 +1,95 @@
+/* Estilos modernos para el título sin desplazar la calculadora */
+.title-style {
+  margin-bottom: 20px;
+  position: relative; /* para posicionar el contenido desplegable encima sin empujar */
+  width: 360px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.842);
+  padding:10px;
+  border-radius:10px;
+  border: double 4px black;
+}
+
+/* Cabecera (puede ser clickable) */
+.title-menu {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.title-menu h1 {
+  font-size: 1.8rem;
+  color: #1f2937;
+  letter-spacing: 0.6px;
+  margin: 0;
+}
+
+/* Icono de flecha */
+.arrow {
+  transition: transform 260ms cubic-bezier(.2,.9,.2,1);
+  color: #6b7280;
+  display: inline-flex;
+  align-items: center;
+}
+
+.arrow.open {
+  transform: rotate(180deg);
+}
+
+/* Contenido desplegable: se muestra por encima (position:absolute)
+   para que la calculadora no cambie su posición/medidas al abrirse. */
+.title-content {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 10px);
+  transform: translateX(-50%) scaleY(0);
+  transform-origin: top center;
+  width: min(360px, 92%);
+  max-width: 360px;
+  background: linear-gradient(180deg, #ffffff, #fbfdff);
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+  padding: 12px 14px;
+  color: #374151;
+  font-size: 14px;
+  line-height: 1.4;
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 260ms cubic-bezier(.2,.9,.2,1), opacity 180ms ease;
+  z-index: 30;
+}
+
+.title-content.open {
+  transform: translateX(-50%) scaleY(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.title-content p { margin: 0; color: #4b5563; }
+
+/* Si preferimos que quede más integrado (sombra sutil cuando está abierto) */
+.title-style.opened::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 6px);
+  transform: translateX(-50%);
+  width: min(360px, 92%);
+  height: 8px;
+  background: linear-gradient(90deg, rgba(102,126,234,0.08), rgba(118,75,162,0.06));
+  border-radius: 6px;
+  z-index: 10;
+}
+
+/* Pequeños ajustes responsivos */
+@media (max-width: 420px) {
+  .title-menu h1 { font-size: 1.4rem; }
+  .title-content { width: calc(100% - 28px); left: 50%; top: calc(100% + 8px); }
+}
+
+
