@@ -1,0 +1,35 @@
+/* src/components/layout/Navbar.module.css */
+/* Estilos de la barra de navegación principal */
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+.links a {
+  font-size: 0.9rem;
+  color: var(--color-secondary);
+  transition: color 0.2s ease;
+}
+
+.links a:hover {
+  color: var(--color-text);
+}

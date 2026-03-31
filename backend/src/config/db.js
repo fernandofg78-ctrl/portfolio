@@ -1,11 +1,14 @@
-import mongoose from 'mongoose';
+// backend/src/config/db.js
+// Conexión a MongoDB Atlas con Mongoose
+
+import mongoose from "mongoose";
 
 export const connectDB = async () => {
   try {
-    const conn = await mongoose.connect(process.env.MONGODB_URI);
-    console.log(`✅ MongoDB connected: ${conn.connection.host}`);
-  } catch (err) {
-    console.error('❌ MongoDB connection error:', err.message);
+    await mongoose.connect(process.env.MONGODB_URI);
+    console.log("✅ MongoDB connected");
+  } catch (error) {
+    console.error("❌ MongoDB connection error:", error);
     process.exit(1);
   }
 };
