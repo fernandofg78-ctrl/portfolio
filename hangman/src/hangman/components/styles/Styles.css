@@ -1,13 +1,13 @@
 /* ============================================================
-   HOJA DE ESTILOS ÚNICA: AHORCADO BILINGÜE (V. GIGANTE CORREGIDA)
+   HOJA DE ESTILOS ÚNICA: AHORCADO BILINGÜE (EDICIÓN FINAL OPTIMIZADA)
    ============================================================ */
 
-/* [Secciones 1, 2 y 3 se mantienen igual] */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+
 html,
 body {
   width: 100%;
@@ -17,26 +17,33 @@ body {
   justify-content: center;
   align-items: center;
   font-family: "Segoe UI", Roboto, sans-serif;
-  overflow: hidden;
+  overflow: hidden; /* Evita que la página baile */
 }
-#root {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
+/* 1. ESCALADO INTELIGENTE (Aquí estaba el truco) */
 .content-area {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
-  transform: scale(0.9);
+  /* En PC se escala para que respire */
+  transform: scale(0.95);
   transform-origin: center;
 }
+
+/* EN MÓVIL: Quitamos el escalado para que ocupe toda la pantalla */
+@media (max-width: 500px) {
+  .content-area {
+    transform: scale(1);
+    padding: 10px;
+  }
+}
+
+/* 2. TARJETA DEL JUEGO */
 .hangman-app {
-  width: min(500px, 95vw);
+  width: min(500px, 100%);
+  max-height: 98vh;
   background: white;
   padding: 25px;
   border-radius: 35px;
@@ -46,14 +53,15 @@ body {
   gap: 12px;
   position: relative;
 }
-.hangman-app h1 {
-  font-size: 1.6rem;
-  text-align: center;
-  color: #2c3e50;
-  margin-bottom: 5px;
+
+@media (max-width: 400px) {
+  .hangman-app {
+    padding: 15px;
+    gap: 8px;
+  }
 }
 
-/* 4. MARCADORES (BOTÓN PEQUEÑO) */
+/* 3. MARCADORES Y BOTÓN */
 .score-board {
   display: flex;
   justify-content: space-between;
@@ -64,55 +72,47 @@ body {
   font-size: 0.85rem;
   color: #34495e;
 }
-.score-board b {
-  color: #2c3e50;
-}
 
 .clear-btn {
   background: #ffffff;
   color: #e74c3c;
   border: 1px solid #fed7d7;
-  padding: 3px 8px; /* Más pequeño */
+  padding: 3px 8px;
   border-radius: 6px;
-  font-size: 0.65rem; /* Letra más pequeña */
+  font-size: 0.65rem;
   font-weight: bold;
-  text-transform: uppercase;
   cursor: pointer;
-  transition: all 0.2s;
-}
-.clear-btn:hover {
-  background: #fff5f5;
-  border-color: #feb2b2;
 }
 
-/* 5. EL ROBOT Y EL BADGE DE INTENTOS (LA SORPRESA) */
+/* 4. EL ROBOT Y EL MARCADOR DE INTENTOS */
 .drawing-container {
   width: 100%;
-  height: 260px;
+  height: 240px; /* Robot grande en PC */
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 5px 0;
-  position: relative; /* Para posicionar el badge dentro */
+  position: relative;
 }
 
-/* El marcador de intentos ahora flota sobre el dibujo */
+/* Ajuste para móviles bajitos */
+@media (max-height: 750px) {
+  .drawing-container {
+    height: 160px;
+  }
+}
+
 .attempts-badge {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 0;
+  right: 0;
   background: #2d3748;
   color: white;
   padding: 4px 12px;
   border-radius: 20px;
   font-size: 0.75rem;
   font-weight: bold;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   z-index: 5;
-}
-.attempts-badge b {
-  color: #63b3ed;
-  margin-left: 4px;
 }
 
 .robot-image {
@@ -122,19 +122,18 @@ body {
   filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.15));
 }
 
-/* [Secciones 6, 7, 8 y 9 se mantienen igual que tu versión gigante] */
+/* 5. MENSAJES DE RESULTADO (Flotantes) */
 .result-message {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 100;
-  width: 80%;
+  width: 90%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
+
 .win,
 .lose {
   padding: 12px 25px;
@@ -142,36 +141,25 @@ body {
   font-weight: bold;
   font-size: 1rem;
   text-align: center;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   backdrop-filter: blur(2px);
 }
 .win {
-  background-color: rgba(234, 250, 241, 0.9);
+  background-color: rgba(234, 250, 241, 0.95);
   color: #27ae60;
   border: 2px solid #2ecc71;
 }
 .lose {
-  background-color: rgba(253, 237, 236, 0.9);
+  background-color: rgba(253, 237, 236, 0.95);
   color: #e74c3c;
   border: 2px solid #fab1a0;
 }
+
+/* 6. PALABRAS (Elásticas) */
 .words-display {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin: 10px 0;
-}
-.word-row {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.word-row small {
-  font-size: 0.65rem;
-  color: #95a5a6;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  margin-bottom: 4px;
+  gap: 10px;
 }
 .word-container {
   display: flex;
@@ -180,36 +168,25 @@ body {
   justify-content: center;
   font-family: "Courier New", Courier, monospace;
   font-weight: bold;
-  font-size: clamp(1.2rem, 5vw, 1.8rem);
+  font-size: clamp(
+    1.1rem,
+    5vw,
+    1.8rem
+  ); /* Se encoge si la palabra es muy larga */
 }
 .letter-slot {
   border-bottom: 3px solid #2c3e50;
   min-width: 1.2em;
   text-align: center;
 }
-.letter-slot.space {
-  border-bottom: none;
-  min-width: 0.6em;
-}
-.letter-content.hidden {
-  opacity: 0;
-  visibility: hidden;
-}
-.letter-content.visible {
-  opacity: 1;
-  visibility: visible;
-}
-.letter-content.red {
-  color: #e74c3c;
-  opacity: 1;
-  visibility: visible;
-}
+
+/* 7. TECLADO (Compacto) */
 .keyboard-container {
   display: grid;
   grid-template-columns: repeat(9, 1fr);
-  gap: 6px;
-  width: 100%;
+  gap: 5px;
 }
+
 .key-btn {
   height: 38px;
   border: none;
@@ -218,17 +195,22 @@ body {
   font-size: 1rem;
   font-weight: bold;
   color: #2c3e50;
-  cursor: pointer;
   box-shadow: 0 3px 0 #bdc3c7;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.1s;
 }
-.key-btn:active:not(:disabled) {
-  transform: translateY(2px);
-  box-shadow: 0 1px 0 #bdc3c7;
+
+@media (max-width: 400px) {
+  .key-btn {
+    height: 34px;
+    font-size: 0.85rem;
+  }
+  .keyboard-container {
+    gap: 3px;
+  }
 }
+
 .key-btn.active {
   background: #3498db;
   color: white;
@@ -238,8 +220,10 @@ body {
   background: #ecf0f1;
   color: #bdc3c7;
   box-shadow: none;
-  cursor: not-allowed;
+  opacity: 0.6;
 }
+
+/* 8. BOTÓN ACCIÓN */
 .reset-btn {
   width: 100%;
   padding: 14px;
@@ -251,34 +235,22 @@ body {
   font-weight: bold;
   cursor: pointer;
   box-shadow: 0 4px 0 #1e8449;
-  transition: all 0.2s;
-}
-.reset-btn:hover {
-  background: #2ecc71;
 }
 .reset-btn:active {
   transform: translateY(2px);
   box-shadow: 0 2px 0 #1e8449;
 }
-@media (max-height: 850px) {
-  .content-area {
-    transform: scale(0.85);
-  }
-  .drawing-container {
-    height: 220px;
-  }
-}
+
+/* ANIMACIONES */
 .fade-in {
   animation: fadeIn 0.5s ease-out;
 }
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 @keyframes popIn {
