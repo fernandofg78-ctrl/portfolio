@@ -10,15 +10,36 @@ import ferImg from "../assets/images/fer.webp";
 
 export const projects = [
   {
-    id: "ahorcado",
-    title: "Ahorcado Bilingüe",
-    description:
-      "Juego del ahorcado con un diccionario en español e inglés de 15000 palabras. Proyecto de React para practicar storgate, fetch y componentes.",
-    tech: ["React"],
-    url: "https://hangman-alpha-fawn.vercel.app",
-    repo: "https://github.com/fernandofg78-ctrl/hangman",
-    image: hangmanImg,
+    id: "camino",
+    title: "CaminoSantiago.app",
+    description: "Aplicación para planificar el Camino de Santiago.",
+    tech: [
+      "Next.js",
+      "Supabase",
+      "Claude",
+      "Mapbox",
+      "Hono",
+      "Multiidioma",
+      "Cloudinary",
+      "Analytics",
+      "...",
+    ],
+    url: "https://caminosantiago.app/",
+    repo: "https://github.com/nano-tucamino/camino-app-web",
+    image: santiagoImg,
   },
+  {
+    id: "nextapa",
+    title: "Nextapa",
+    description:
+      "App para descubrir tapas cercanas. Proyecto colaborativo fin del máster.",
+    tech: ["React", "Express", "MongoDB"],
+    url: "https://nextapa.netlify.app/",
+    repo: "https://github.com/FSD1125STR/TFM-amarillo-frontend",
+    repoBackend: "https://github.com/FSD1125STR/TFM-amarillo-backend",
+    image: tapaImg,
+  },
+
   {
     id: "mazarife",
     title: "Mazarife.es",
@@ -38,35 +59,16 @@ export const projects = [
     repo: "https://github.com/fernandofg78-ctrl/rfg",
     image: rfgImg,
   },
+
   {
-    id: "nextapa",
-    title: "Nextapa",
+    id: "ahorcado",
+    title: "Ahorcado Bilingüe",
     description:
-      "App para descubrir tapas cercanas. Proyecto colaborativo fin del máster.",
-    tech: ["React", "Express", "MongoDB"],
-    url: "https://nextapa.netlify.app/",
-    repo: "https://github.com/FSD1125STR/TFM-amarillo-frontend",
-    repoBackend: "https://github.com/FSD1125STR/TFM-amarillo-backend",
-    image: tapaImg,
-  },
-  {
-    id: "camino",
-    title: "CaminoSantiago.app",
-    description: "Aplicación para planificar el Camino de Santiago.",
-    tech: [
-      "Next.js",
-      "Supabase",
-      "Claude",
-      "Mapbox",
-      "Hono",
-      "Multiidioma",
-      "Cloudinary",
-      "Analytics",
-      "...",
-    ],
-    url: "https://caminosantiago.app/",
-    repo: "https://github.com/nano-tucamino/camino-app-web",
-    image: santiagoImg,
+      "Juego del ahorcado con un diccionario en español e inglés de 15000 palabras. Proyecto de React para practicar storgate, fetch y componentes.",
+    tech: ["React"],
+    url: "https://hangman-alpha-fawn.vercel.app",
+    repo: "https://github.com/fernandofg78-ctrl/hangman",
+    image: hangmanImg,
   },
   {
     id: "portfolio",
