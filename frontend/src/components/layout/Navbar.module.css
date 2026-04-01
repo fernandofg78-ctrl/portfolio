@@ -6,7 +6,7 @@
   top: 0;
   z-index: 100;
   background-color: var(--color-nav-bg, var(--color-background));
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: var(--border-width, 1px) solid var(--color-border);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   padding: 0 2.5rem;
@@ -20,13 +20,15 @@
 }
 
 .logo {
+  font-family: var(--font-mono, var(--font-heading));
   font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   color: var(--color-text);
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition:
+    color 0.3s ease,
+    font-family 0.3s ease;
 }
 
 .right {
@@ -43,7 +45,7 @@
 
 .links a {
   font-size: 12px;
-  font-weight: 400;
+  font-weight: 500;
   color: var(--color-text-muted);
   text-decoration: none;
   letter-spacing: 0.08em;
@@ -52,7 +54,13 @@
 }
 
 .links a:hover {
-  color: var(--color-accent);
+  color: var(--color-text);
+}
+
+/* Variante brutal — links sin blur, borde más grueso */
+.brutal .links a {
+  font-family: var(--font-mono);
+  font-size: 11px;
 }
 
 .themeSwitcher {
@@ -62,31 +70,33 @@
 }
 
 .themeDot {
-  width: 12px;
-  height: 12px;
+  width: 13px;
+  height: 13px;
   border-radius: 50%;
-  border: 1.5px solid;
+  border: var(--border-width, 1.5px) solid var(--color-border);
   cursor: pointer;
   padding: 0;
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
+  flex-shrink: 0;
 }
 
 .themeDot:hover {
-  transform: scale(1.2);
+  transform: scale(1.25);
 }
 
 .themeDot.active {
   transform: scale(1.15);
   box-shadow:
     0 0 0 2px var(--color-background),
-    0 0 0 3.5px var(--color-accent);
+    0 0 0 3.5px var(--color-text);
 }
 
 @media (max-width: 768px) {
   .navbar {
     padding: 0 1.25rem;
+    height: 52px;
   }
 
   .links {

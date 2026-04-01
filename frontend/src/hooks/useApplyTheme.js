@@ -11,7 +11,7 @@ export const useApplyTheme = () => {
     const root = document.documentElement;
     const { colors, font, layout } = currentTheme;
 
-    // Colores base
+    // Colores
     root.style.setProperty("--color-background", colors.background);
     root.style.setProperty("--color-surface", colors.surface);
     root.style.setProperty("--color-primary", colors.primary);
@@ -33,10 +33,14 @@ export const useApplyTheme = () => {
     // Tipografía
     root.style.setProperty("--font-heading", font.heading);
     root.style.setProperty("--font-body", font.body);
+    root.style.setProperty("--font-mono", font.mono);
     root.style.setProperty("--font-body-weight", font.bodyWeight);
 
     // Layout
     root.style.setProperty("--name-stroke", layout.nameStroke);
     root.style.setProperty("--card-radius", layout.cardRadius);
+    root.style.setProperty("--border-width", layout.borderWidth);
+    root.style.setProperty("--hero-title-case", layout.heroTitleCase);
+    root.style.setProperty("--hero-weight", layout.heroWeight);
   }, [currentTheme]);
 };

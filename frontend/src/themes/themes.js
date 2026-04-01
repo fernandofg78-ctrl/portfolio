@@ -24,12 +24,15 @@ export const themes = {
     font: {
       heading: "'Inter', sans-serif",
       body: "'Inter', sans-serif",
+      mono: "'Inter', sans-serif",
       bodyWeight: "400",
     },
     layout: {
       nameStroke: "none",
       cardRadius: "4px",
-      sectionLabelStyle: "normal",
+      borderWidth: "1px",
+      heroTitleCase: "none",
+      heroWeight: "700",
     },
   },
 
@@ -55,12 +58,49 @@ export const themes = {
     font: {
       heading: "'Inter', sans-serif",
       body: "'Inter', sans-serif",
+      mono: "'Inter', sans-serif",
       bodyWeight: "300",
     },
     layout: {
       nameStroke: "1px rgba(232,228,220,0.2)",
       cardRadius: "0px",
-      sectionLabelStyle: "uppercase",
+      borderWidth: "1px",
+      heroTitleCase: "none",
+      heroWeight: "700",
+    },
+  },
+
+  brutal: {
+    name: "brutal",
+    label: "Brutal",
+    colors: {
+      background: "#F2EFE8",
+      surface: "#ECEAE3",
+      primary: "#0D0D0D",
+      secondary: "rgba(13,13,13,0.5)",
+      accent: "#0D0D0D",
+      accentGold: "transparent",
+      text: "#0D0D0D",
+      textMuted: "rgba(13,13,13,0.4)",
+      textOutline: "transparent",
+      border: "#0D0D0D",
+      statNum: "#0D0D0D",
+      navBg: "#F2EFE8",
+      featuredBadge: "#0D0D0D",
+      featuredBadgeText: "#F2EFE8",
+    },
+    font: {
+      heading: "'Space Grotesk', sans-serif",
+      body: "'Space Grotesk', sans-serif",
+      mono: "'Space Mono', monospace",
+      bodyWeight: "400",
+    },
+    layout: {
+      nameStroke: "2px #0D0D0D",
+      cardRadius: "0px",
+      borderWidth: "2px",
+      heroTitleCase: "uppercase",
+      heroWeight: "900",
     },
   },
 };

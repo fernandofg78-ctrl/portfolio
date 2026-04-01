@@ -1,5 +1,5 @@
 // src/components/projects/ProjectCard.jsx
-// Card de proyecto — soporta variante featured (ocupa 2 columnas)
+// Card estándar para temas default y dark
 
 import { useNavigate } from "react-router-dom";
 import styles from "./ProjectCard.module.css";
@@ -22,7 +22,6 @@ export const ProjectCard = ({ project, featured = false, index = 0 }) => {
         )}
         <div className={styles.imageOverlay} />
       </div>
-
       <div className={styles.content}>
         <div className={styles.contentTop}>
           {featured && (
@@ -33,7 +32,7 @@ export const ProjectCard = ({ project, featured = false, index = 0 }) => {
           <p className={styles.description}>{project.description}</p>
         </div>
         <ul className={styles.tech}>
-          {project.tech?.map((t) => (
+          {project.tech?.slice(0, 4).map((t) => (
             <li key={t}>{t}</li>
           ))}
         </ul>
