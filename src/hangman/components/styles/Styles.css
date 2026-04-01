@@ -1,84 +1,293 @@
-/* ===== 1. RESET DE ESTILOS (INDISPENSABLE) ===== */
+/* ============================================================
+   HOJA DE ESTILOS ÚNICA: AHORCADO BILINGÜE (V. GIGANTE CORREGIDA)
+   ============================================================ */
+
+/* [Secciones 1, 2 y 3 se mantienen igual] */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-
 html,
 body {
   width: 100%;
   height: 100vh;
-  background: #eeeff3 !important; /* Forzamos el color claro */
+  background-color: #eeeff3 !important;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Roboto, sans-serif;
   overflow: hidden;
 }
-
-/* ===== 2. CONTENEDOR MAESTRO (EL QUE ESCALA) ===== */
+#root {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .content-area {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100vh;
-
-  /* Aquí está el truco del 90% (o el 67% que querías) */
+  height: 100%;
   transform: scale(0.9);
   transform-origin: center;
 }
-
-/* Ajustes automáticos según la altura de la pantalla del navegador */
-@media (max-height: 850px) {
-  .content-area {
-    transform: scale(0.75);
-  }
-}
-
-@media (max-height: 650px) {
-  .content-area {
-    transform: scale(0.65);
-  }
-}
-
-/* ===== 3. LA TARJETA BLANCA (EL JUEGO) ===== */
 .hangman-app {
   width: min(500px, 95vw);
   background: white;
   padding: 25px;
-  border-radius: 30px;
-  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
+  border-radius: 35px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   gap: 12px;
   position: relative;
-  z-index: 2;
-  color: #2c3e50; /* Color de texto oscuro por defecto */
+}
+.hangman-app h1 {
+  font-size: 1.6rem;
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 5px;
 }
 
-/* ===== 4. EL ROBOT (FLEXIBLE) ===== */
-.robot {
-  width: auto;
-  max-width: 260px;
-  height: auto;
-  max-height: 160px; /* Evita que crezca demasiado */
-  margin: 0 auto;
-  display: block;
-  object-fit: contain;
-  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.08));
-  flex-shrink: 1; /* Si el teclado empuja, el robot se encoge */
-}
-
-/* ===== 5. TABLERO DE PUNTOS ===== */
+/* 4. MARCADORES (BOTÓN PEQUEÑO) */
 .score-board {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  background: #f8f9fa;
+  padding: 8px 16px;
+  background: #edf2f7;
+  border-radius: 14px;
+  font-size: 0.85rem;
+  color: #34495e;
+}
+.score-board b {
+  color: #2c3e50;
+}
+
+.clear-btn {
+  background: #ffffff;
+  color: #e74c3c;
+  border: 1px solid #fed7d7;
+  padding: 3px 8px; /* Más pequeño */
+  border-radius: 6px;
+  font-size: 0.65rem; /* Letra más pequeña */
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.clear-btn:hover {
+  background: #fff5f5;
+  border-color: #feb2b2;
+}
+
+/* 5. EL ROBOT Y EL BADGE DE INTENTOS (LA SORPRESA) */
+.drawing-container {
+  width: 100%;
+  height: 260px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 0;
+  position: relative; /* Para posicionar el badge dentro */
+}
+
+/* El marcador de intentos ahora flota sobre el dibujo */
+.attempts-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #2d3748;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 5;
+}
+.attempts-badge b {
+  color: #63b3ed;
+  margin-left: 4px;
+}
+
+.robot-image {
+  max-height: 100%;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.15));
+}
+
+/* [Secciones 6, 7, 8 y 9 se mantienen igual que tu versión gigante] */
+.result-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.win,
+.lose {
+  padding: 12px 25px;
   border-radius: 15px;
-  font-size: 0.9rem;
-  border: 1px solid #eee;
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2px);
+}
+.win {
+  background-color: rgba(234, 250, 241, 0.9);
+  color: #27ae60;
+  border: 2px solid #2ecc71;
+}
+.lose {
+  background-color: rgba(253, 237, 236, 0.9);
+  color: #e74c3c;
+  border: 2px solid #fab1a0;
+}
+.words-display {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 10px 0;
+}
+.word-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.word-row small {
+  font-size: 0.65rem;
+  color: #95a5a6;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 4px;
+}
+.word-container {
+  display: flex;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-size: clamp(1.2rem, 5vw, 1.8rem);
+}
+.letter-slot {
+  border-bottom: 3px solid #2c3e50;
+  min-width: 1.2em;
+  text-align: center;
+}
+.letter-slot.space {
+  border-bottom: none;
+  min-width: 0.6em;
+}
+.letter-content.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+.letter-content.visible {
+  opacity: 1;
+  visibility: visible;
+}
+.letter-content.red {
+  color: #e74c3c;
+  opacity: 1;
+  visibility: visible;
+}
+.keyboard-container {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 6px;
+  width: 100%;
+}
+.key-btn {
+  height: 38px;
+  border: none;
+  background: #f8f9fa;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #2c3e50;
+  cursor: pointer;
+  box-shadow: 0 3px 0 #bdc3c7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s;
+}
+.key-btn:active:not(:disabled) {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #bdc3c7;
+}
+.key-btn.active {
+  background: #3498db;
+  color: white;
+  box-shadow: 0 3px 0 #2980b9;
+}
+.key-btn.inactive {
+  background: #ecf0f1;
+  color: #bdc3c7;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+.reset-btn {
+  width: 100%;
+  padding: 14px;
+  background: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #1e8449;
+  transition: all 0.2s;
+}
+.reset-btn:hover {
+  background: #2ecc71;
+}
+.reset-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #1e8449;
+}
+@media (max-height: 850px) {
+  .content-area {
+    transform: scale(0.85);
+  }
+  .drawing-container {
+    height: 220px;
+  }
+}
+.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes popIn {
+  from {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
 }

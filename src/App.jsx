@@ -1,5 +1,5 @@
 import Hangman from "./hangman/components/Hangman";
-import "./App.css";
+
 import "./hangman/components/styles/Styles.css";
 
 function App() {
