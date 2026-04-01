@@ -1,13 +1,27 @@
 .drawing-container {
-  height: 140px; 
+  /* Bajamos un poco la altura base para ganar espacio para la 5ª fila del teclado */
+  height: 120px;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-shrink: 0;
+  flex-shrink: 1; /* Permitimos que se encoja si el teclado empuja hacia arriba */
+  margin: 5px 0;
+  overflow: hidden;
 }
 
 .robot-image {
   max-height: 100%;
+  width: auto;
   object-fit: contain;
+  /* Suavizamos el renderizado para que al encogerse no pierda calidad */
+  image-rendering: -webkit-optimize-contrast;
+  filter: drop-shadow(0 8px 15px rgba(0, 0, 0, 0.1));
+}
+
+/* Si la pantalla es muy alta (escritorio), le damos un poco más de aire */
+@media (min-height: 900px) {
+  .drawing-container {
+    height: 160px;
+  }
 }
