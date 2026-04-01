@@ -1,30 +1,43 @@
 // src/components/projects/ProjectCard.jsx
-// Card individual de proyecto
+// Card de proyecto — soporta variante featured (ocupa 2 columnas)
 
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from "./ProjectCard.module.css";
 
-export const ProjectCard = ({ project }) => {
-  const { id, title, description, tech, image } = project;
+export const ProjectCard = ({ project, featured = false, index = 0 }) => {
+  const navigate = useNavigate();
 
   return (
-    <Link to={`/project/${id}`} className={styles.card}>
+    <div
+      className={`${styles.card} ${featured ? styles.featured : ""}`}
+      onClick={() => navigate(`/projects/${project.id}`)}
+    >
       <div className={styles.image}>
-        {image ? (
-          <img src={image} alt={title} className={styles.thumbnail} />
+        {project.image ? (
+          <img src={project.image} alt={project.title} className={styles.img} />
         ) : (
-          <span className={styles.placeholder}>{title[0]}</span>
+          <span className={styles.placeholder}>
+            {project.title.slice(0, 2).toUpperCase()}
+          </span>
         )}
+        <div className={styles.imageOverlay} />
       </div>
+
       <div className={styles.content}>
-        <h3 className={styles.title}>{title}</h3>
-        <p className={styles.description}>{description}</p>
+        <div className={styles.contentTop}>
+          {featured && (
+            <span className={styles.featuredBadge}>Proyecto estrella</span>
+          )}
+          <div className={styles.num}>{String(index + 1).padStart(2, "0")}</div>
+          <h3 className={styles.title}>{project.title}</h3>
+          <p className={styles.description}>{project.description}</p>
+        </div>
         <ul className={styles.tech}>
-          {tech.map((t) => (
+          {project.tech?.map((t) => (
             <li key={t}>{t}</li>
           ))}
         </ul>
       </div>
-    </Link>
+    </div>
   );
 };
