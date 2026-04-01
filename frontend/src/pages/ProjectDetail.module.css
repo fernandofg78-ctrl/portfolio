@@ -106,3 +106,23 @@
   align-items: center;
   justify-content: center;
 }
+
+@media (max-width: 768px) {
+  .title {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  .iframe {
+    height: 400px;
+  }
+
+  .meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .tech {
+    flex-wrap: wrap;
+  }
+}

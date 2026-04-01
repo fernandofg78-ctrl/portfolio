@@ -104,3 +104,39 @@
 .contactLink:hover {
   opacity: 0.5;
 }
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: calc(100vh - 56px);
+    padding: 2rem 0 2rem;
+  }
+
+  .name {
+    font-size: clamp(3.5rem, 18vw, 6rem);
+  }
+
+  .heroContent {
+    gap: 1.5rem;
+  }
+
+  .tagline {
+    max-width: 100%;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .projects {
+    padding: 2.5rem 0;
+  }
+
+  .contact {
+    padding: 3.5rem 0;
+  }
+
+  .contactTitle {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+}
