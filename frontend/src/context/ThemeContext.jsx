@@ -1,20 +1,17 @@
 // src/context/ThemeContext.jsx
+// Gestiona el tema visual activo de la aplicación
+
 import { createContext, useContext, useState } from "react";
-import { themes, defaultTheme } from "../themes/themes";
 
 const ThemeContext = createContext(null);
 
 export const ThemeProvider = ({ children }) => {
-  const [currentTheme, setCurrentTheme] = useState(defaultTheme);
+  const [activeTheme, setActiveTheme] = useState("default");
 
-  const changeTheme = (themeName) => {
-    if (themes[themeName]) {
-      setCurrentTheme(themes[themeName]);
-    }
-  };
+  const changeTheme = (themeName) => setActiveTheme(themeName);
 
   return (
-    <ThemeContext.Provider value={{ currentTheme, changeTheme }}>
+    <ThemeContext.Provider value={{ activeTheme, changeTheme }}>
       {children}
     </ThemeContext.Provider>
   );

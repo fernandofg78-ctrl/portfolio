@@ -1,0 +1,160 @@
+/* src/themes/default/default.css */
+/* Estilos completos del tema por defecto — minimal, tipografía limpia */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap");
+
+/* ─── Wrapper ───────────────────────────────────────────── */
+
+.default-wrapper {
+  min-height: 100vh;
+  background: #f5f4f0;
+  color: #1a1a1a;
+  font-family: "Inter", sans-serif;
+}
+
+/* ─── Header ────────────────────────────────────────────── */
+
+.default-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 3rem;
+  border-bottom: 1px solid #e0ddd6;
+}
+
+.default-logo {
+  font-family: "Playfair Display", serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.default-nav {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.theme-btn {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #1a1a1a;
+  opacity: 0.3;
+  transition: opacity 0.2s ease;
+}
+
+.theme-btn.brutal {
+  background: #ff3300;
+}
+
+.theme-btn.active,
+.theme-btn:hover {
+  opacity: 1;
+}
+
+/* ─── Hero ──────────────────────────────────────────────── */
+
+.default-hero {
+  padding: 6rem 3rem 4rem;
+  max-width: 900px;
+}
+
+.default-title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+}
+
+.default-subtitle {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* ─── Projects ──────────────────────────────────────────── */
+
+.default-projects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5px;
+  background: #e0ddd6;
+  border-top: 1.5px solid #e0ddd6;
+}
+
+.default-card {
+  background: #f5f4f0;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.2s ease;
+}
+
+.default-card:hover {
+  background: #eceae4;
+}
+
+.default-card-img {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #e0ddd6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  color: #999;
+}
+
+.default-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.default-card-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.default-card-body h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.default-card-body p {
+  font-size: 0.8rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+.default-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+
+.default-tags li {
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: #999;
+  border: 1px solid #d0cdc6;
+  padding: 0.15rem 0.5rem;
+  border-radius: 2px;
+}
+
+/* ─── Footer ────────────────────────────────────────────── */
+
+.default-footer {
+  padding: 2rem 3rem;
+  border-top: 1px solid #e0ddd6;
+  font-size: 0.75rem;
+  color: #999;
+}

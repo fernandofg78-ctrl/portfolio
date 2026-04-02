@@ -1,13 +1,43 @@
 // src/App.jsx
-// Componente raíz — aplica el tema y renderiza el router
+// Carga el layout correspondiente al tema activo
 
-import { useApplyTheme } from "./hooks/useApplyTheme";
-import { AppRouter } from "./router/AppRouter";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useTheme } from "./context/ThemeContext";
+import { ProjectDetail } from "./pages/ProjectDetail";
+import { NotFound } from "./pages/NotFound";
+import { projects } from "./utils/projects";
+
+import { Layout as DefaultLayout } from "./themes/default/Layout";
+import { Layout as BrutalismLayout } from "./themes/brutalism/Layout";
+
+const layouts = {
+  default: DefaultLayout,
+  brutalism: BrutalismLayout,
+};
 
 const App = () => {
-  useApplyTheme();
+  const { activeTheme, changeTheme } = useTheme();
+  const ActiveLayout = layouts[activeTheme];
 
-  return <AppRouter />;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route
+          element={
+            <ActiveLayout
+              projects={projects}
+              changeTheme={changeTheme}
+              activeTheme={activeTheme}
+            />
+          }
+        >
+          <Route path="/" element={null} />
+          <Route path="/project/:id" element={<ProjectDetail />} />
+        </Route>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
+  );
 };
 
 export default App;

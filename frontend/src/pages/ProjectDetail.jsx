@@ -3,46 +3,33 @@
 
 import { useParams, Link } from "react-router-dom";
 import { projects } from "../utils/projects";
-import styles from "./ProjectDetail.module.css";
 
 export const ProjectDetail = () => {
   const { id } = useParams();
   const project = projects.find((p) => p.id === id);
 
-  if (!project)
-    return <div className={styles.notFound}>Proyecto no encontrado</div>;
+  if (!project) return <div>Proyecto no encontrado</div>;
 
   const { title, description, tech, url, repo } = project;
 
   return (
-    <div className={styles.detail}>
-      <Link to="/" className={styles.back}>
-        ← Volver
-      </Link>
+    <div>
+      <Link to="/">← Volver</Link>
 
-      <header className={styles.header}>
-        <h1 className={styles.title}>{title}</h1>
-        <p className={styles.description}>{description}</p>
+      <header>
+        <h1>{title}</h1>
+        <p>{description}</p>
       </header>
 
-      {url && (
-        <div className={styles.demo}>
-          <iframe
-            src={url}
-            title={title}
-            className={styles.iframe}
-            allow="fullscreen"
-          />
-        </div>
-      )}
+      {url && <iframe src={url} title={title} allow="fullscreen" />}
 
-      <footer className={styles.meta}>
-        <ul className={styles.tech}>
+      <footer>
+        <ul>
           {tech.map((t) => (
             <li key={t}>{t}</li>
           ))}
         </ul>
-        <div className={styles.links}>
+        <div>
           {repo && (
             <a href={repo} target="_blank" rel="noreferrer">
               GitHub

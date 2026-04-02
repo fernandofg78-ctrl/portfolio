@@ -1,5 +1,5 @@
 /* src/index.css */
-/* Estilos base globales — reset, variables y tipografía */
+/* Reset global — los temas se encargan del resto */
 
 *,
 *::before,
@@ -11,32 +11,26 @@
 
 html {
   font-size: 16px;
-}
-
-body {
-  background-color: var(--color-background);
-  color: var(--color-text);
-  font-family: var(--font-body);
-  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-heading);
-  line-height: 1.2;
+img {
+  display: block;
+  max-width: 100%;
 }
 
 a {
-  color: inherit;
   text-decoration: none;
+  color: inherit;
 }
 
-img {
-  max-width: 100%;
-  display: block;
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
 }
