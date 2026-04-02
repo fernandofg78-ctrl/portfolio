@@ -2,10 +2,14 @@
 // Layout del tema por defecto — minimal, tipografía limpia
 
 import { Outlet } from "react-router-dom";
+import { useModal } from "../../context/ModalContext";
+import { DefaultModal } from "../../components/modal/DefaultModal";
 import { projects } from "../../utils/projects";
 import "./default.css";
 
 export const Layout = ({ changeTheme, activeTheme }) => {
+  const { openModal } = useModal();
+
   return (
     <div className="default-wrapper">
       <header className="default-header">
@@ -40,10 +44,10 @@ export const Layout = ({ changeTheme, activeTheme }) => {
 
         <section className="default-projects">
           {projects.map((project) => (
-            <a
+            <div
               key={project.id}
-              href={`/project/${project.id}`}
               className="default-card"
+              onClick={() => openModal(project)}
             >
               <div className="default-card-img">
                 {project.image ? (
@@ -61,7 +65,7 @@ export const Layout = ({ changeTheme, activeTheme }) => {
                   ))}
                 </ul>
               </div>
-            </a>
+            </div>
           ))}
         </section>
       </main>
@@ -70,6 +74,7 @@ export const Layout = ({ changeTheme, activeTheme }) => {
         <p>© 2026 fer.dev</p>
       </footer>
 
+      <DefaultModal />
       <Outlet />
     </div>
   );

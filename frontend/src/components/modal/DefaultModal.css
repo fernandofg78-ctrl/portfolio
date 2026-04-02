@@ -1,0 +1,193 @@
+/* src/components/modal/DefaultModal.css */
+/* Modal de proyecto — tema default */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+
+/* ─── Overlay ───────────────────────────────────────────── */
+
+.dm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+/* ─── Panel ─────────────────────────────────────────────── */
+
+.dm-panel {
+  background: #f5f4f0;
+  width: 100%;
+  max-width: 860px;
+  max-height: 90vh;
+  display: flex;
+  gap: 3rem;
+  padding: 3rem;
+  position: relative;
+  overflow-y: auto;
+}
+
+/* ─── Close ─────────────────────────────────────────────── */
+
+.dm-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  font-size: 0.85rem;
+  color: #999;
+  transition: color 0.2s ease;
+  font-family: "Inter", sans-serif;
+}
+
+.dm-close:hover {
+  color: #1a1a1a;
+}
+
+/* ─── Left — mockup ─────────────────────────────────────── */
+
+.dm-left {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dm-no-demo {
+  width: 220px;
+  height: 420px;
+  background: #e0ddd6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: #999;
+  font-family: "Inter", sans-serif;
+}
+
+/* ─── Right — info ──────────────────────────────────────── */
+
+.dm-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.dm-num {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #999;
+  font-family: "Inter", sans-serif;
+}
+
+.dm-title {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: #1a1a1a;
+  font-family: "Inter", sans-serif;
+}
+
+.dm-desc {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.6;
+  font-family: "Inter", sans-serif;
+}
+
+.dm-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+}
+
+.dm-tags li {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid #d0cdc6;
+  padding: 0.2rem 0.6rem;
+  color: #888;
+  font-family: "Inter", sans-serif;
+}
+
+/* ─── Links ─────────────────────────────────────────────── */
+
+.dm-links {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.dm-links a {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  border-bottom: 1px solid #d0cdc6;
+  padding-bottom: 2px;
+  font-family: "Inter", sans-serif;
+  transition: border-color 0.2s ease;
+}
+
+.dm-links a:hover {
+  border-color: #1a1a1a;
+}
+
+/* ─── Phone device ──────────────────────────────────────── */
+
+.phone-device {
+  width: 220px;
+  background: #1a1a1a;
+  border-radius: 36px;
+  padding: 12px;
+  box-shadow:
+    0 0 0 1px #333,
+    0 24px 60px rgba(0, 0, 0, 0.4);
+}
+
+.phone-device-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.phone-camera {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #333;
+}
+
+.phone-screen {
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  aspect-ratio: 9 / 19;
+  background: #000;
+}
+
+.phone-iframe {
+  width: 375px;
+  height: 100%;
+  border: none;
+  transform: scale(0.513);
+  transform-origin: top left;
+  pointer-events: all;
+}
+
+.phone-home-btn {
+  width: 40px;
+  height: 4px;
+  border-radius: 2px;
+  background: #333;
+}
