@@ -1,5 +1,5 @@
 // src/components/modal/DefaultModal.jsx
-// Modal de proyecto — mockup protagonista + botones for user / for dev
+// Modal de proyecto — mockup protagonista desktop/tablet, iframe directo en móvil
 
 import { useState } from "react";
 import { useModal } from "../../context/ModalContext";
@@ -7,32 +7,52 @@ import { PhoneMockup } from "./PhoneMockup";
 import { InfoModal } from "./InfoModal";
 import "./DefaultModal.css";
 
+const getDevice = () => {
+  const w = window.innerWidth;
+  if (w < 768) return "mobile";
+  if (w < 1024) return "tablet";
+  return "desktop";
+};
+
 export const DefaultModal = () => {
   const { activeProject, closeModal } = useModal();
-  const [infoMode, setInfoMode] = useState(null); // 'user' | 'dev' | null
+  const [infoMode, setInfoMode] = useState(null);
 
   if (!activeProject) return null;
 
   const { title, url } = activeProject;
+  const device = getDevice();
 
   return (
     <>
       <div className="dm-overlay" onClick={closeModal}>
-        <div className="dm-panel" onClick={(e) => e.stopPropagation()}>
+        <div
+          className={`dm-panel dm-panel--${device}`}
+          onClick={(e) => e.stopPropagation()}
+        >
           <button className="dm-close" onClick={closeModal}>
             ✕
           </button>
 
-          {/* ── Mockup protagonista ── */}
+          {/* ── Mockup / iframe según dispositivo ── */}
           <div className="dm-mockup">
             {url ? (
-              <PhoneMockup url={url} title={title} />
+              device === "mobile" ? (
+                <iframe
+                  src={url}
+                  title={title}
+                  className="dm-iframe-direct"
+                  allow="fullscreen"
+                />
+              ) : (
+                <PhoneMockup url={url} title={title} />
+              )
             ) : (
               <div className="dm-no-demo">Sin demo disponible</div>
             )}
           </div>
 
-          {/* ── Info mínima ── */}
+          {/* ── Footer ── */}
           <div className="dm-footer">
             <span className="dm-footer-title">{title}</span>
             <div className="dm-footer-actions">
@@ -50,7 +70,6 @@ export const DefaultModal = () => {
         </div>
       </div>
 
-      {/* ── Segundo modal ── */}
       {infoMode && (
         <InfoModal
           project={activeProject}
