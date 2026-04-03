@@ -1,55 +1,63 @@
 // src/components/modal/DefaultModal.jsx
-// Modal de proyecto para el tema default
+// Modal de proyecto — mockup protagonista + botones for user / for dev
 
+import { useState } from "react";
 import { useModal } from "../../context/ModalContext";
 import { PhoneMockup } from "./PhoneMockup";
+import { InfoModal } from "./InfoModal";
 import "./DefaultModal.css";
 
 export const DefaultModal = () => {
   const { activeProject, closeModal } = useModal();
+  const [infoMode, setInfoMode] = useState(null); // 'user' | 'dev' | null
 
   if (!activeProject) return null;
 
-  const { title, description, tech, url, repo } = activeProject;
+  const { title, url } = activeProject;
 
   return (
-    <div className="dm-overlay" onClick={closeModal}>
-      <div className="dm-panel" onClick={(e) => e.stopPropagation()}>
-        <button className="dm-close" onClick={closeModal}>
-          ✕
-        </button>
+    <>
+      <div className="dm-overlay" onClick={closeModal}>
+        <div className="dm-panel" onClick={(e) => e.stopPropagation()}>
+          <button className="dm-close" onClick={closeModal}>
+            ✕
+          </button>
 
-        <div className="dm-left">
-          {url ? (
-            <PhoneMockup url={url} title={title} />
-          ) : (
-            <div className="dm-no-demo">Sin demo disponible</div>
-          )}
-        </div>
+          {/* ── Mockup protagonista ── */}
+          <div className="dm-mockup">
+            {url ? (
+              <PhoneMockup url={url} title={title} />
+            ) : (
+              <div className="dm-no-demo">Sin demo disponible</div>
+            )}
+          </div>
 
-        <div className="dm-right">
-          <p className="dm-num">Proyecto</p>
-          <h2 className="dm-title">{title}</h2>
-          <p className="dm-desc">{description}</p>
-          <ul className="dm-tags">
-            {tech?.map((t) => (
-              <li key={t}>{t}</li>
-            ))}
-          </ul>
-          <div className="dm-links">
-            {repo && (
-              <a href={repo} target="_blank" rel="noreferrer">
-                GitHub →
-              </a>
-            )}
-            {url && (
-              <a href={url} target="_blank" rel="noreferrer">
-                Ver proyecto →
-              </a>
-            )}
+          {/* ── Info mínima ── */}
+          <div className="dm-footer">
+            <span className="dm-footer-title">{title}</span>
+            <div className="dm-footer-actions">
+              <button className="dm-btn" onClick={() => setInfoMode("user")}>
+                for user
+              </button>
+              <button
+                className="dm-btn dm-btn--dev"
+                onClick={() => setInfoMode("dev")}
+              >
+                for dev
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+
+      {/* ── Segundo modal ── */}
+      {infoMode && (
+        <InfoModal
+          project={activeProject}
+          mode={infoMode}
+          onClose={() => setInfoMode(null)}
+        />
+      )}
+    </>
   );
 };

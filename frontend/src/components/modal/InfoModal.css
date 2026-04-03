@@ -1,0 +1,163 @@
+/* src/components/modal/InfoModal.css */
+/* Segundo modal — contenido editorial */
+
+/* ─── Overlay ───────────────────────────────────────────── */
+
+.im-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+/* ─── Panel ─────────────────────────────────────────────── */
+
+.im-panel {
+  background: #fff;
+  width: 100%;
+  max-width: 480px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  overflow-y: auto;
+}
+
+/* ─── Header ────────────────────────────────────────────── */
+
+.im-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #efefef;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 1;
+}
+
+.im-mode {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: lowercase;
+  color: #999;
+  font-family: "Inter", sans-serif;
+}
+
+.im-close {
+  font-size: 0.8rem;
+  color: #bbb;
+  transition: color 0.2s ease;
+  font-family: "Inter", sans-serif;
+}
+
+.im-close:hover {
+  color: #1a1a1a;
+}
+
+/* ─── Body ──────────────────────────────────────────────── */
+
+.im-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem 1.5rem;
+}
+
+.im-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: #1a1a1a;
+  font-family: "Inter", sans-serif;
+}
+
+.im-desc {
+  font-size: 0.875rem;
+  color: #555;
+  line-height: 1.65;
+  font-family: "Inter", sans-serif;
+}
+
+/* ─── Section ───────────────────────────────────────────── */
+
+.im-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.im-label {
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #bbb;
+  font-family: "Inter", sans-serif;
+}
+
+/* ─── Tags ──────────────────────────────────────────────── */
+
+.im-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+}
+
+.im-tags li {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid #e0e0e0;
+  padding: 0.2rem 0.6rem;
+  color: #888;
+  font-family: "Inter", sans-serif;
+}
+
+/* ─── Links ─────────────────────────────────────────────── */
+
+.im-links {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.im-link {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #555;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 2px;
+  font-family: "Inter", sans-serif;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.im-link:hover {
+  color: #1a1a1a;
+  border-color: #1a1a1a;
+}
+
+.im-link--primary {
+  color: #1a1a1a;
+  border-color: #1a1a1a;
+}
+
+/* ─── Placeholder doc técnica ───────────────────────────── */
+
+.im-placeholder-text {
+  font-size: 0.8rem;
+  color: #ccc;
+  font-style: italic;
+  font-family: "Inter", sans-serif;
+}
