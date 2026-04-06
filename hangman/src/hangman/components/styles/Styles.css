@@ -10,26 +10,24 @@
 
 html,
 body {
-  width: 100%;
-  height: 100vh;
-  background-color: #eeeff3 !important;
+  min-height: 100vh;
+  height: auto;
   display: flex;
   justify-content: center;
-  align-items: center;
-  font-family: "Segoe UI", Roboto, sans-serif;
-  overflow: hidden; /* Evita que la página baile */
+  align-items: flex-start;
+  overflow-y: auto;
 }
 
 /* 1. ESCALADO INTELIGENTE (Aquí estaba el truco) */
 .content-area {
+  width: 100%;
+  height: auto;
   display: flex;
   justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  /* En PC se escala para que respire */
+  align-items: flex-start;
+  padding: 12px 0;
   transform: scale(0.95);
-  transform-origin: center;
+  transform-origin: top center;
 }
 
 /* EN MÓVIL: Quitamos el escalado para que ocupe toda la pantalla */
