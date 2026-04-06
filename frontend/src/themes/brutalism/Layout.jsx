@@ -6,6 +6,7 @@ import { Outlet, Link } from "react-router-dom";
 import { useModal } from "../../context/ModalContext";
 import { DefaultModal } from "../../components/modal/DefaultModal";
 import { projects } from "../../utils/projects";
+import { Navbar } from "../../components/navbar/Navbar";
 import "./brutalism.css";
 
 const STATS = [

@@ -7,6 +7,7 @@ import { useModal } from "../../context/ModalContext";
 import { DefaultModal } from "../../components/modal/DefaultModal";
 import { projects } from "../../utils/projects";
 import "./groovy.css";
+import { Navbar } from "../../components/navbar/Navbar";
 
 const STATS = [
   { num: "5", label: "Apps en prod." },
