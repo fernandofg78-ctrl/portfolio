@@ -2,7 +2,7 @@
 // Navbar compartido — renderiza el logo y el selector de temas
 
 import { Link } from "react-router-dom";
-import "./Navbar.css";
+import "./navbar.css";
 
 const THEMES = [
   { id: "default", label: "Default" },
