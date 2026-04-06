@@ -3,7 +3,7 @@
 
 import { useModal } from "../../context/ModalContext";
 import { DefaultModal } from "../../components/modal/DefaultModal";
-import { Navbar } from "../../components/Navbar/Navbar";
+import { Navbar } from "../../components/navbar/Navbar";
 import { projects } from "../../utils/projects";
 
 import santiagoImg from "../../assets/images/san-tiago.jpg";

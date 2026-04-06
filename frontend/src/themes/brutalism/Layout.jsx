@@ -2,7 +2,7 @@
 // Layout del tema brutalism — tipografía pesada, grid irregular, mockups de móvil
 
 import { Outlet, Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 import { useModal } from "../../context/ModalContext";
 import { DefaultModal } from "../../components/modal/DefaultModal";
 import { projects } from "../../utils/projects";
