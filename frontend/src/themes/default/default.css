@@ -42,6 +42,8 @@
   background: #1a1a1a;
   opacity: 0.3;
   transition: opacity 0.2s ease;
+  border: none;
+  cursor: pointer;
 }
 
 .theme-btn.brutal {
@@ -80,32 +82,27 @@
 .default-projects {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5px;
-  background: #e0ddd6;
-  border-top: 1.5px solid #e0ddd6;
+  gap: 2rem;
+  padding: 3rem;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .default-card {
   background: #f5f4f0;
   display: flex;
   flex-direction: column;
-  transition: background 0.2s ease;
+  cursor: pointer;
+  gap: 1rem;
 }
 
-.default-card:hover {
-  background: #eceae4;
-}
+/* ─── Imagen con overlay ────────────────────────────────── */
 
 .default-card-img {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 386 / 620;
   overflow: hidden;
   background: #e0ddd6;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "Playfair Display", serif;
-  font-size: 2rem;
-  color: #999;
+  position: relative;
 }
 
 .default-card-img img {
@@ -113,13 +110,52 @@
   height: 100%;
   object-fit: cover;
   object-position: top;
+  display: block;
+  transition: transform 0.4s ease;
 }
 
+.default-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 10, 0);
+  display: flex;
+  align-items: flex-end;
+  padding: 1.5rem 1.25rem;
+  transition: background 0.3s ease;
+}
+
+.default-card-overlay-title {
+  font-family: "Playfair Display", serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  line-height: 1.2;
+}
+
+.default-card:hover .default-card-img img {
+  transform: scale(1.03);
+}
+
+.default-card:hover .default-card-overlay {
+  background: rgba(10, 10, 10, 0.55);
+}
+
+.default-card:hover .default-card-overlay-title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Cuerpo de la card ─────────────────────────────────── */
+
 .default-card-body {
-  padding: 1.25rem;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.4rem;
 }
 
 .default-card-body h3 {
@@ -154,7 +190,50 @@
 
 .default-footer {
   padding: 2rem 3rem;
+  margin-top: 3rem;
   border-top: 1px solid #e0ddd6;
   font-size: 0.75rem;
   color: #999;
+}
+
+/* ─── Responsive ────────────────────────────────────────── */
+
+@media (max-width: 1024px) {
+  .default-projects {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
+    padding: 2.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .default-header {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .default-hero {
+    padding: 3rem 1.5rem 2.5rem;
+  }
+
+  .default-projects {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+
+  .default-card-img {
+    aspect-ratio: 386 / 500;
+  }
+
+  .default-card-body h3 {
+    font-size: 0.8rem;
+  }
+
+  .default-card-body p {
+    display: none;
+  }
+
+  .default-footer {
+    padding: 1.5rem;
+  }
 }

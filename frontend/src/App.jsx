@@ -9,10 +9,14 @@ import { projects } from "./utils/projects";
 
 import { Layout as DefaultLayout } from "./themes/default/Layout";
 import { Layout as BrutalismLayout } from "./themes/brutalism/Layout";
+import { Layout as GroovyLayout } from "./themes/groovy/Layout";
+import { Layout as ArchiveLayout } from "./themes/archive/Layout";
 
 const layouts = {
   default: DefaultLayout,
   brutalism: BrutalismLayout,
+  groovy: GroovyLayout,
+  archive: ArchiveLayout,
 };
 
 const App = () => {

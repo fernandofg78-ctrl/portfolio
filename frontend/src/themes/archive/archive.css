@@ -1,0 +1,432 @@
+/* src/themes/archive/archive.css */
+/* Tema archive — blanco puro, azul pizarra, tipografía editorial, orden absoluto */
+
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap");
+
+/* ─── Variables ─────────────────────────────────────────── */
+
+.a-wrapper {
+  --bg: #ffffff;
+  --text: #111111;
+  --text-muted: #999999;
+  --text-light: #cccccc;
+  --accent: #4a6fa5;
+  --border: #e8e8e8;
+  --surface: #f7f7f7;
+  --font-head: "Cormorant Garamond", serif;
+  --font-mono: "DM Mono", monospace;
+
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-mono);
+}
+
+/* ─── Navbar override ───────────────────────────────────── */
+
+.a-wrapper .navbar {
+  border-bottom: 1px solid var(--border);
+  padding: 1.5rem 4rem;
+}
+
+.a-wrapper .navbar-logo {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  color: var(--text);
+}
+
+.a-wrapper .navbar-dot--default {
+  background: #111111;
+}
+.a-wrapper .navbar-dot--brutalism {
+  background: #ff3300;
+}
+.a-wrapper .navbar-dot--groovy {
+  background: #c8e64c;
+  border: 1px solid #aaa;
+}
+.a-wrapper .navbar-dot--archive {
+  background: #4a6fa5;
+}
+
+/* ─── Hero ──────────────────────────────────────────────── */
+
+.a-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8rem 4rem 6rem;
+  border-bottom: 1px solid var(--border);
+  gap: 2rem;
+}
+
+.a-hero-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.a-hero-title {
+  font-family: var(--font-head);
+  font-size: clamp(4rem, 9vw, 9rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.a-hero-title em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.a-hero-sub {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  line-height: 1.8;
+}
+
+.a-hero-divider {
+  width: 1px;
+  height: 48px;
+  background: var(--border);
+  margin: 0 auto;
+}
+
+/* ─── Stats ─────────────────────────────────────────────── */
+
+.a-stats {
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--border);
+}
+
+.a-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 1.25rem 2.5rem;
+  border-right: 1px solid var(--border);
+}
+
+.a-stat:last-child {
+  border-right: none;
+}
+
+.a-stat-num {
+  font-family: var(--font-head);
+  font-size: 2.5rem;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--text);
+}
+
+.a-stat-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* ─── Proyectos ─────────────────────────────────────────── */
+
+.a-projects {
+  padding: 6rem 4rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.a-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.a-section-title {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.a-section-count {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+/* ─── Grid ──────────────────────────────────────────────── */
+
+.a-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+
+/* ─── Card ──────────────────────────────────────────────── */
+
+.a-card {
+  border: 1px solid var(--border);
+  margin: -1px 0 0 -1px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: var(--bg);
+  transition: background 0.2s ease;
+}
+
+/* Línea de acento inferior — el único movimiento */
+.a-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.35s ease;
+}
+
+.a-card:hover::after {
+  width: 100%;
+}
+
+.a-card:hover {
+  background: var(--surface);
+}
+
+/* ─── Imagen de la card ─────────────────────────────────── */
+
+.a-card-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.a-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+
+.a-card-placeholder {
+  font-family: var(--font-head);
+  font-size: 3rem;
+  font-weight: 500;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+/* ─── Cuerpo de la card ─────────────────────────────────── */
+
+.a-card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.a-card-num {
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.a-card-title {
+  font-family: var(--font-head);
+  font-size: 1.35rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.a-card-desc {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-top: 0.25rem;
+}
+
+.a-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+.a-card-tags li {
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  padding: 0.2rem 0.6rem;
+}
+
+.a-card:hover .a-card-tags li {
+  border-color: var(--accent);
+  color: var(--accent);
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+/* ─── Contacto ──────────────────────────────────────────── */
+
+.a-contact {
+  border-top: 1px solid var(--border);
+  padding: 8rem 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+}
+
+.a-contact-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.a-contact-title {
+  font-family: var(--font-head);
+  font-size: clamp(3rem, 6vw, 6rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.a-contact-title em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.a-contact-link {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--text);
+  padding-bottom: 2px;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.a-contact-link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.a-contact-avail {
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ─── Footer ────────────────────────────────────────────── */
+
+.a-footer {
+  padding: 1.5rem 4rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+/* ─── Responsive — Tablet (≤1024px) ────────────────────── */
+
+@media (max-width: 1024px) {
+  .a-wrapper .navbar {
+    padding: 1.5rem 2rem;
+  }
+  .a-hero {
+    padding: 6rem 2rem 4rem;
+  }
+  .a-projects {
+    padding: 4rem 2rem;
+  }
+
+  .a-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .a-stat {
+    padding: 1rem 1.5rem;
+  }
+}
+
+/* ─── Responsive — Móvil (≤600px) ──────────────────────── */
+
+@media (max-width: 600px) {
+  .a-wrapper .navbar {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .a-hero {
+    padding: 4rem 1.5rem 3rem;
+    gap: 1.5rem;
+  }
+
+  .a-stats {
+    width: 100%;
+  }
+
+  .a-stat {
+    flex: 1;
+    padding: 0.75rem 0.5rem;
+  }
+
+  .a-projects {
+    padding: 3rem 1.5rem;
+  }
+
+  .a-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .a-contact {
+    padding: 5rem 1.5rem;
+  }
+  .a-footer {
+    padding: 1.5rem;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

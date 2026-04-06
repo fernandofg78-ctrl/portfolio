@@ -1,0 +1,59 @@
+/* src/components/Navbar/Navbar.css */
+/* Estilos base del navbar — cada tema sobreescribe con sus propias variables */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 3rem;
+}
+
+.navbar-logo {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  color: inherit;
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navbar-themes {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.navbar-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: none;
+  opacity: 0.35;
+  cursor: pointer;
+  transition:
+    opacity 0.2s ease,
+    transform 0.15s ease;
+  padding: 0;
+}
+
+.navbar-dot:hover,
+.navbar-dot--active {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+/* Colores identificativos por tema */
+.navbar-dot--default {
+  background: #1a1a1a;
+}
+.navbar-dot--brutalism {
+  background: #ff3300;
+}
+.navbar-dot--groovy {
+  background: #c8e64c;
+}

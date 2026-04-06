@@ -4,6 +4,7 @@
 import { Outlet } from "react-router-dom";
 import { useModal } from "../../context/ModalContext";
 import { DefaultModal } from "../../components/modal/DefaultModal";
+import { Navbar } from "../../components/Navbar/Navbar";
 import { projects } from "../../utils/projects";
 import "./default.css";
 
@@ -12,21 +13,7 @@ export const Layout = ({ changeTheme, activeTheme }) => {
 
   return (
     <div className="default-wrapper">
-      <header className="default-header">
-        <span className="default-logo">fer.dev</span>
-        <nav className="default-nav">
-          <button
-            className={`theme-btn ${activeTheme === "default" ? "active" : ""}`}
-            onClick={() => changeTheme("default")}
-            title="Default"
-          />
-          <button
-            className={`theme-btn brutal ${activeTheme === "brutalism" ? "active" : ""}`}
-            onClick={() => changeTheme("brutalism")}
-            title="Brutalism"
-          />
-        </nav>
-      </header>
+      <Navbar changeTheme={changeTheme} activeTheme={activeTheme} />
 
       <main className="default-main">
         <section className="default-hero">
@@ -51,7 +38,14 @@ export const Layout = ({ changeTheme, activeTheme }) => {
             >
               <div className="default-card-img">
                 {project.image ? (
-                  <img src={project.image} alt={project.title} />
+                  <>
+                    <img src={project.image} alt={project.title} />
+                    <div className="default-card-overlay">
+                      <span className="default-card-overlay-title">
+                        {project.title}
+                      </span>
+                    </div>
+                  </>
                 ) : (
                   <span>{project.title[0]}</span>
                 )}
