@@ -6,7 +6,7 @@ import { Outlet, Link } from "react-router-dom";
 import { useModal } from "../../context/ModalContext";
 import { DefaultModal } from "../../components/modal/DefaultModal";
 import { projects } from "../../utils/projects";
-import { Navbar } from "../../components/navbar/Navbar";
+import { Navbar } from "../../components/Navbar/Navbar";
 import "./brutalism.css";
 
 const STATS = [
@@ -80,33 +80,7 @@ const ProjectsGrid = () => {
 export const Layout = ({ changeTheme, activeTheme }) => {
   return (
     <div className="b-wrapper">
-      <header className="b-header">
-        <Link to="/" className="b-logo">
-          FER.DEV
-        </Link>
-        <nav className="b-nav">
-          <ul className="b-nav-links">
-            <li>
-              <Link to="/">Proyectos</Link>
-            </li>
-            <li>
-              <a href="#contact">Contacto</a>
-            </li>
-          </ul>
-          <div className="b-theme-switcher">
-            <button
-              className={`b-dot ${activeTheme === "default" ? "b-dot--active" : ""}`}
-              onClick={() => changeTheme("default")}
-              title="Default"
-            />
-            <button
-              className={`b-dot b-dot--brutal ${activeTheme === "brutalism" ? "b-dot--active" : ""}`}
-              onClick={() => changeTheme("brutalism")}
-              title="Brutalism"
-            />
-          </div>
-        </nav>
-      </header>
+      <Navbar changeTheme={changeTheme} activeTheme={activeTheme} />
 
       <section className="b-hero">
         <div className="b-hero-top">

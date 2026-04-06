@@ -48,101 +48,60 @@
   background: var(--orange);
 }
 
-/* ─── Header ────────────────────────────────────────────── */
+/* ─── Navbar override ───────────────────────────────────── */
 
-.g-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.g-wrapper .navbar {
   padding: 1.5rem 3rem;
   position: relative;
   z-index: 10;
 }
 
-.g-logo {
+.g-wrapper .navbar-logo {
   font-family: var(--font-head);
   font-size: 1.1rem;
   font-weight: 800;
   letter-spacing: -0.02em;
-  text-decoration: none;
   color: var(--cream);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
 }
 
-.g-logo-dot {
-  width: 8px;
-  height: 8px;
-  background: var(--orange);
-  border-radius: 50%;
-  display: inline-block;
-  animation: gpulse 2s ease-in-out infinite;
-}
-
-@keyframes gpulse {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.6);
-    opacity: 0.7;
-  }
-}
-
-.g-nav {
-  display: flex;
-  align-items: center;
-  gap: 2.5rem;
-}
-
-.g-nav-links {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-}
-
-.g-nav-links a {
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-family: var(--font-mono);
-  text-decoration: none;
+.g-wrapper .navbar-themes-label {
   color: var(--muted);
-  transition: color 0.2s ease;
+  font-family: var(--font-mono);
 }
 
-.g-nav-links a:hover {
+.g-wrapper .navbar-theme-btn {
+  color: var(--cream);
+  border-radius: 100px;
+  border-color: transparent;
+}
+
+.g-wrapper .navbar-theme-btn:hover,
+.g-wrapper .navbar-theme-btn.is-active {
+  border-color: var(--lime);
+}
+
+.g-wrapper .navbar-theme-name {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--muted);
+}
+
+.g-wrapper .navbar-theme-btn:hover .navbar-theme-name,
+.g-wrapper .navbar-theme-btn.is-active .navbar-theme-name {
   color: var(--lime);
 }
 
-.g-theme-switcher {
-  display: flex;
-  gap: 0.4rem;
-  align-items: center;
+.g-wrapper .navbar-theme-btn[data-theme="default"] .navbar-theme-dot {
+  background: #f0ebd8;
 }
-
-.g-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  border: 1.5px solid var(--muted);
-  background: transparent;
-  opacity: 0.5;
-  transition:
-    opacity 0.2s ease,
-    border-color 0.2s ease;
-  cursor: none;
+.g-wrapper .navbar-theme-btn[data-theme="brutalism"] .navbar-theme-dot {
+  background: #ff3300;
 }
-
-.g-dot--active,
-.g-dot:hover {
-  opacity: 1;
-  border-color: var(--lime);
+.g-wrapper .navbar-theme-btn[data-theme="groovy"] .navbar-theme-dot {
   background: var(--lime);
+}
+.g-wrapper .navbar-theme-btn[data-theme="archive"] .navbar-theme-dot {
+  background: #4a6fa5;
 }
 
 /* ─── Hero ──────────────────────────────────────────────── */
@@ -362,7 +321,6 @@
   gap: 1.25rem;
 }
 
-/* Distribución asimétrica */
 .g-card:nth-child(1) {
   grid-column: 1 / 7;
 }
@@ -384,7 +342,6 @@
 
 /* ─── Card ──────────────────────────────────────────────── */
 
-/* Colores rotativos por card */
 .g-card:nth-child(1) {
   --card-accent: var(--orange);
   --card-bg: #241e14;
@@ -434,7 +391,6 @@
   z-index: 10;
 }
 
-/* Tilt alternado */
 .g-card:nth-child(odd) {
   --card-tilt: -1deg;
 }
@@ -445,7 +401,6 @@
   --card-tilt: 0deg;
 }
 
-/* Círculo que explota en hover */
 .g-card::before {
   content: "";
   position: absolute;
@@ -469,7 +424,7 @@
   height: 600px;
 }
 
-/* ─── Imagen / mockup de la card ────────────────────────── */
+/* ─── Media / mockup ────────────────────────────────────── */
 
 .g-card-media {
   position: relative;
@@ -557,7 +512,6 @@
   opacity: 0.3;
 }
 
-/* Decoración orgánica detrás del mockup */
 .g-card-deco {
   position: absolute;
   border-radius: 50%;
@@ -767,6 +721,10 @@
 /* ─── Responsive — Tablet (≤1024px) ────────────────────── */
 
 @media (max-width: 1024px) {
+  .g-wrapper .navbar {
+    padding: 1.25rem 2rem;
+  }
+
   .g-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
@@ -798,15 +756,16 @@
   .g-wrapper {
     cursor: auto;
   }
+
   .g-cursor {
     display: none;
   }
 
-  .g-header {
+  .g-wrapper .navbar {
     padding: 1rem 1.5rem;
   }
 
-  .g-nav-links {
+  .g-wrapper .navbar-themes-label {
     display: none;
   }
 

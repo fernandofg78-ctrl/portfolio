@@ -1,5 +1,5 @@
 // src/context/ModalContext.jsx
-// Gestiona el proyecto activo en el modal
+// Contexto global para abrir y cerrar el modal de proyecto
 
 import { createContext, useContext, useState } from "react";
 
@@ -19,7 +19,7 @@ export const ModalProvider = ({ children }) => {
 };
 
 export const useModal = () => {
-  const context = useContext(ModalContext);
-  if (!context) throw new Error("useModal must be used within a ModalProvider");
-  return context;
+  const ctx = useContext(ModalContext);
+  if (!ctx) throw new Error("useModal debe usarse dentro de ModalProvider");
+  return ctx;
 };

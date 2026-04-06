@@ -3,6 +3,7 @@
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useTheme } from "./context/ThemeContext";
+import { ModalProvider } from "./context/ModalContext";
 import { ProjectDetail } from "./pages/ProjectDetail";
 import { NotFound } from "./pages/NotFound";
 import { projects } from "./utils/projects";
@@ -25,21 +26,23 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <Routes>
-        <Route
-          element={
-            <ActiveLayout
-              projects={projects}
-              changeTheme={changeTheme}
-              activeTheme={activeTheme}
-            />
-          }
-        >
-          <Route path="/" element={null} />
-          <Route path="/project/:id" element={<ProjectDetail />} />
-        </Route>
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <ModalProvider>
+        <Routes>
+          <Route
+            element={
+              <ActiveLayout
+                projects={projects}
+                changeTheme={changeTheme}
+                activeTheme={activeTheme}
+              />
+            }
+          >
+            <Route path="/" element={null} />
+            <Route path="/project/:id" element={<ProjectDetail />} />
+          </Route>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </ModalProvider>
     </BrowserRouter>
   );
 };

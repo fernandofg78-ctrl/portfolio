@@ -3,7 +3,7 @@
 
 import { useModal } from "../../context/ModalContext";
 import { DefaultModal } from "../../components/modal/DefaultModal";
-import { Navbar } from "../../components/navbar/Navbar";
+import { Navbar } from "../../components/Navbar/Navbar";
 import { projects } from "../../utils/projects";
 
 import santiagoImg from "../../assets/images/san-tiago.jpg";
@@ -12,7 +12,6 @@ import mazarifeImg from "../../assets/images/villar-3.webp";
 import rfgImg from "../../assets/images/rfg-3.webp";
 import hangmanImg from "../../assets/images/hangman.webp";
 import ferImg from "../../assets/images/fer.webp";
-
 import "./archive.css";
 
 const THEME_IMAGES = {

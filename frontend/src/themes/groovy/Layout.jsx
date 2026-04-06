@@ -7,7 +7,7 @@ import { useModal } from "../../context/ModalContext";
 import { DefaultModal } from "../../components/modal/DefaultModal";
 import { projects } from "../../utils/projects";
 import "./groovy.css";
-import { Navbar } from "../../components/navbar/Navbar";
+import { Navbar } from "../../components/Navbar/Navbar";
 
 const STATS = [
   { num: "5", label: "Apps en prod." },
@@ -131,39 +131,7 @@ export const Layout = ({ changeTheme, activeTheme }) => {
     <div className="g-wrapper">
       <CustomCursor />
 
-      <header className="g-header">
-        <Link to="/" className="g-logo">
-          fer.dev
-          <span className="g-logo-dot" />
-        </Link>
-        <nav className="g-nav">
-          <ul className="g-nav-links">
-            <li>
-              <Link to="/">Proyectos</Link>
-            </li>
-            <li>
-              <a href="#contact">Contacto</a>
-            </li>
-          </ul>
-          <div className="g-theme-switcher">
-            <button
-              className={`g-dot ${activeTheme === "default" ? "g-dot--active" : ""}`}
-              onClick={() => changeTheme("default")}
-              title="Default"
-            />
-            <button
-              className={`g-dot ${activeTheme === "brutalism" ? "g-dot--active" : ""}`}
-              onClick={() => changeTheme("brutalism")}
-              title="Brutalism"
-            />
-            <button
-              className={`g-dot ${activeTheme === "groovy" ? "g-dot--active" : ""}`}
-              onClick={() => changeTheme("groovy")}
-              title="Groovy"
-            />
-          </div>
-        </nav>
-      </header>
+      <Navbar changeTheme={changeTheme} activeTheme={activeTheme} />
 
       <section className="g-hero">
         <div className="g-blob g-blob--1" />
