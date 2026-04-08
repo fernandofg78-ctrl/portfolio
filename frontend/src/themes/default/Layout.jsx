@@ -6,6 +6,7 @@ import { Outlet } from "react-router-dom";
 import { DefaultModal } from "../../components/modal/DefaultModal";
 import { Navbar } from "../../components/Navbar/Navbar";
 import { projects } from "../../utils/projects";
+import { PhoneMockup } from "../../components/modal/PhoneMockup";
 import "./default.css";
 
 const IPhone15 = ({ url, image, title }) => (
@@ -102,11 +103,7 @@ const ProjectRow = ({ project, index, isExpanded, onToggle }) => {
 
           {/* iPhone 15 — click NO cierra */}
           <div className="d-row-panel-mockup">
-            <IPhone15
-              url={project.url}
-              image={project.image}
-              title={project.title}
-            />
+            <PhoneMockup url={project.url} title={project.title} />
           </div>
         </div>
       </div>
@@ -135,9 +132,9 @@ export const Layout = ({ changeTheme, activeTheme }) => {
           </h1>
           <div className="d-intro-right">
             <p className="d-intro-desc">
-              <strong>6 proyectos</strong> construidos en 3 meses. React, Node,
-              MongoDB, Next.js, Supabase. Algunos en producción con usuarios
-              reales.
+              <strong>Proyectos</strong> construidos en 3 meses. Por hobbie, por
+              aprender, por experimentar. Sin clientes, sin presión, sin fechas
+              de entrega. Solo código, creatividad e ilusión.
             </p>
             <div className="d-intro-count">
               <span>Proyectos</span>
