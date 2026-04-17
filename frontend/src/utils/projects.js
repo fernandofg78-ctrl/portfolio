@@ -34,7 +34,7 @@ export const projects = [
     description:
       "App para descubrir tapas cercanas. Proyecto colaborativo fin del máster.",
     tech: ["React", "Express", "MongoDB"],
-    url: "https://nextapa.netlify.app/",
+    url: "https://tfm-amarillo-frontend.onrender.com/",
     repo: "https://github.com/FSD1125STR/TFM-amarillo-frontend",
     repoBackend: "https://github.com/FSD1125STR/TFM-amarillo-backend",
     image: tapaImg,
