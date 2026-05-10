@@ -820,3 +820,201 @@
     padding: 1.5rem;
   }
 }
+
+/* ─── AÑADIR AL FINAL DE groovy.css ────────────────────── */
+
+/* ─── Modal de panel ────────────────────────────────────── */
+
+.gm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 8, 4, 0.75);
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+  animation: gm-fade 0.25s ease;
+}
+
+@keyframes gm-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.gm-modal {
+  background: #1a1400;
+  border: 2px solid #e8a020;
+  width: min(900px, 94vw);
+  height: min(680px, 90vh);
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  overflow: hidden;
+  animation: gm-in 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 0 60px rgba(232, 160, 32, 0.15);
+}
+
+@keyframes gm-in {
+  from {
+    transform: scale(0.88) translateY(16px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+.gm-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(232, 160, 32, 0.25);
+  flex-shrink: 0;
+}
+
+.gm-modal-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.gm-modal-title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #e8a020;
+}
+
+.gm-modal-sep {
+  color: #e8a020;
+  opacity: 0.4;
+  font-size: 0.6rem;
+}
+
+.gm-modal-label {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 248, 220, 0.4);
+}
+
+.gm-modal-close {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid rgba(232, 160, 32, 0.3);
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: rgba(255, 248, 220, 0.5);
+  line-height: 1;
+  transition: all 0.2s ease;
+}
+
+.gm-modal-close:hover {
+  background: #e8a020;
+  border-color: #e8a020;
+  color: #1a1400;
+}
+
+.gm-modal-body {
+  flex: 1;
+  overflow: hidden;
+}
+
+.gm-modal-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ─── Placeholder ───────────────────────────────────────── */
+
+.gm-modal-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at center, #1f1800 0%, #0d0b00 100%);
+}
+
+.gm-modal-placeholder-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+  max-width: 360px;
+  padding: 2rem;
+}
+
+.gm-placeholder-icon {
+  font-size: 2.5rem;
+  color: #e8a020;
+  animation: gm-spin 4s linear infinite;
+}
+
+@keyframes gm-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.gm-placeholder-title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff8dc;
+  letter-spacing: -0.02em;
+}
+
+.gm-placeholder-desc {
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: rgba(255, 248, 220, 0.45);
+}
+
+.gm-placeholder-desc strong {
+  color: #e8a020;
+}
+
+.gm-placeholder-link {
+  margin-top: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #c8e64c;
+  text-decoration: none;
+  border-bottom: 1px solid #c8e64c;
+  padding-bottom: 2px;
+  transition: opacity 0.2s ease;
+}
+
+.gm-placeholder-link:hover {
+  opacity: 0.7;
+}
+
+/* ─── WhatsApp link ─────────────────────────────────────── */
+
+.g-contact-link--whatsapp {
+  color: #25d366 !important;
+  border-color: #25d366 !important;
+}

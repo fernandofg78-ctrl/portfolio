@@ -1,5 +1,5 @@
 /* src/themes/default/default.css */
-/* Tema default — lista editorial con expansión in-situ + PhoneMockup */
+/* Tema default — lista editorial con expansión in-situ + Easter egg huevo */
 
 @import url("https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap");
 
@@ -104,29 +104,6 @@
   font-weight: 400;
 }
 
-.d-intro-count {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.1rem;
-}
-
-.d-intro-count span {
-  font-size: 0.6rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--muted);
-  font-weight: 500;
-}
-
-.d-intro-count strong {
-  font-family: var(--font-head);
-  font-size: 3.5rem;
-  font-weight: 300;
-  line-height: 1;
-  color: var(--text);
-}
-
 /* ─── Lista ─────────────────────────────────────────────── */
 
 .d-list {
@@ -153,16 +130,13 @@
   min-height: 90px;
   transition: background 0.25s ease;
   position: relative;
-}
-
-.d-row:not(.d-row--saas) .d-row-header {
   cursor:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='10' fill='none' stroke='%230a0a0a' stroke-width='1.5'/%3E%3Cpath d='M12 8v8M8 12h8' stroke='%230a0a0a' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E")
       12 12,
     pointer;
 }
 
-.d-row--expanded:not(.d-row--saas) .d-row-header {
+.d-row--expanded .d-row-header {
   cursor:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='10' fill='none' stroke='%23ffffff' stroke-width='1.5'/%3E%3Cpath d='M8 12h8' stroke='%23ffffff' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E")
       12 12,
@@ -213,11 +187,6 @@
 .d-row-header:hover .d-row-title,
 .d-row--expanded .d-row-title {
   color: #ffffff;
-}
-
-.d-row-title--muted {
-  color: var(--muted);
-  font-style: italic;
 }
 
 .d-row-tags {
@@ -273,46 +242,16 @@
   color: #666;
 }
 
-/* ─── SaaS ──────────────────────────────────────────────── */
-
-.d-row--saas {
-  opacity: 0.4;
-}
-
-.d-row--saas .d-row-header {
-  cursor: default;
-}
-
-.d-row--saas .d-row-header:hover {
-  background: transparent;
-}
-
-.d-row--saas .d-row-header:hover .d-row-title {
-  color: var(--muted);
-}
-
-.d-row--saas .d-row-header:hover .d-row-num {
-  color: var(--border);
-}
-
-.d-row-soon {
-  font-size: 0.6rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--light);
-  font-weight: 500;
-}
-
 /* ─── Panel expandido ───────────────────────────────────── */
 
 .d-row-panel {
   display: grid;
   grid-template-rows: 0fr;
   transition: grid-template-rows 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  background: #0a0a0a;
+  background: var(--bg);
   width: 100%;
   cursor:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='10' fill='none' stroke='%23ffffff' stroke-width='1.5'/%3E%3Cpath d='M8 12h8' stroke='%23ffffff' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E")
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='10' fill='none' stroke='%230a0a0a' stroke-width='1.5'/%3E%3Cpath d='M8 12h8' stroke='%230a0a0a' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E")
       12 12,
     pointer;
 }
@@ -339,8 +278,9 @@
   flex-direction: column;
   gap: 1.25rem;
   justify-content: center;
+  border-right: 1px solid var(--border);
   cursor:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='10' fill='none' stroke='%23ffffff' stroke-width='1.5'/%3E%3Cpath d='M8 12h8' stroke='%23ffffff' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E")
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='10' fill='none' stroke='%230a0a0a' stroke-width='1.5'/%3E%3Cpath d='M8 12h8' stroke='%230a0a0a' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E")
       12 12,
     pointer;
 }
@@ -351,14 +291,14 @@
   font-weight: 300;
   letter-spacing: -0.03em;
   line-height: 0.95;
-  color: #ffffff;
+  color: var(--text);
   font-style: italic;
 }
 
 .d-panel-desc {
   font-size: 0.8rem;
   line-height: 1.8;
-  color: #888;
+  color: var(--muted);
   max-width: 380px;
   font-weight: 300;
 }
@@ -374,7 +314,7 @@
 
 .d-panel-features li {
   font-size: 0.72rem;
-  color: #666;
+  color: var(--muted);
   font-weight: 300;
   display: flex;
   align-items: center;
@@ -386,7 +326,7 @@
   width: 3px;
   height: 3px;
   border-radius: 50%;
-  background: #444;
+  background: var(--light);
   flex-shrink: 0;
 }
 
@@ -404,8 +344,8 @@
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #555;
-  border: 1px solid #222;
+  color: var(--muted);
+  border: 1px solid var(--border);
   padding: 0.2rem 0.6rem;
 }
 
@@ -418,9 +358,9 @@
 .d-panel-link {
   font-size: 0.72rem;
   font-weight: 400;
-  color: #666;
+  color: var(--muted);
   text-decoration: none;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid var(--border);
   padding-bottom: 2px;
   transition:
     color 0.2s ease,
@@ -429,18 +369,18 @@
 }
 
 .d-panel-link:hover {
-  color: #fff;
-  border-color: #666;
+  color: var(--text);
+  border-color: var(--muted);
 }
 
 .d-panel-link--primary {
-  color: #aaa;
-  border-color: #555;
+  color: var(--text);
+  border-color: var(--light);
 }
 
 .d-panel-link--primary:hover {
-  color: #fff;
-  border-color: #aaa;
+  color: var(--text);
+  border-color: var(--text);
 }
 
 /* ─── Mockup ─────────────────────────────────────────────── */
@@ -450,7 +390,7 @@
   align-items: center;
   justify-content: center;
   padding: 3rem 3rem 3rem 2rem;
-  background: #0a0a0a;
+  background: var(--bg);
   cursor: default;
 }
 
@@ -466,6 +406,217 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   font-weight: 500;
+}
+
+/* ─── Easter Egg — Huevo flotante ───────────────────────── */
+
+.egg-float {
+  position: fixed;
+  bottom: 36px;
+  right: 44px;
+  z-index: 9000;
+  cursor: pointer;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.12));
+  animation: egg-bob 3s ease-in-out infinite;
+  transition: transform 0.2s ease;
+}
+
+.egg-float:hover {
+  transform: scale(1.1);
+}
+
+@keyframes egg-bob {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+/* Entrada suave */
+.egg-float {
+  animation:
+    egg-bob 3s ease-in-out infinite,
+    egg-appear 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes egg-appear {
+  from {
+    opacity: 0;
+    transform: scale(0.3) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Shake al hacer click */
+.egg-float--cracking {
+  animation: egg-shake 0.4s ease forwards !important;
+}
+
+@keyframes egg-shake {
+  0%,
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+  15% {
+    transform: rotate(-10deg) scale(1.05);
+  }
+  30% {
+    transform: rotate(10deg) scale(1.1);
+  }
+  45% {
+    transform: rotate(-7deg) scale(1.08);
+  }
+  60% {
+    transform: rotate(7deg) scale(1.12);
+  }
+  80% {
+    transform: rotate(-3deg) scale(1.05);
+  }
+}
+
+/* Mitades del huevo */
+.egg-float .egg-top {
+  transform-origin: 28px 52px;
+  transition:
+    transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.4s ease;
+}
+
+.egg-float .egg-bottom {
+  transform-origin: 28px 52px;
+  transition:
+    transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.4s ease;
+}
+
+.egg-float .egg-crack {
+  opacity: 0;
+  transition: opacity 0.2s ease 0.2s;
+}
+
+/* Estado roto — mitades caen */
+.egg-float--broken .egg-top {
+  transform: translateY(-55px) translateX(-18px) rotate(-30deg);
+  opacity: 0;
+}
+
+.egg-float--broken .egg-bottom {
+  transform: translateY(55px) translateX(18px) rotate(25deg);
+  opacity: 0;
+}
+
+.egg-float--broken .egg-crack {
+  opacity: 1;
+}
+
+/* ─── Easter Egg — Modal Hangman ────────────────────────── */
+
+.egg-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.55);
+  z-index: 9100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+  animation: egg-overlay-in 0.3s ease;
+}
+
+@keyframes egg-overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.egg-modal {
+  background: #ffffff;
+  border-radius: 16px;
+  width: min(880px, 92vw);
+  height: min(780px, 94vh);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: egg-modal-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: 1px solid var(--border);
+}
+
+@keyframes egg-modal-in {
+  from {
+    transform: scale(0.8) translateY(24px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+.egg-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.egg-modal-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.egg-modal-emoji {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.egg-modal-title {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.egg-modal-close {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--muted);
+  line-height: 1;
+  transition: all 0.2s ease;
+  font-family: var(--font-body);
+}
+
+.egg-modal-close:hover {
+  background: var(--text);
+  color: #fff;
+  border-color: var(--text);
+}
+
+.egg-modal-iframe {
+  flex: 1;
+  border: none;
+  width: 100%;
 }
 
 /* ─── Responsive ────────────────────────────────────────── */
@@ -499,9 +650,19 @@
     grid-template-columns: 1fr;
   }
 
+  .d-row-panel-info {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
   .d-row-panel-mockup {
     padding: 0 2rem 3rem;
     justify-content: flex-start;
+  }
+
+  .egg-float {
+    bottom: 24px;
+    right: 24px;
   }
 }
 
@@ -548,5 +709,11 @@
     padding: 1.5rem;
     flex-direction: column;
     gap: 0.5rem;
+  }
+
+  .egg-modal {
+    width: 96vw;
+    height: 85vh;
+    border-radius: 12px;
   }
 }

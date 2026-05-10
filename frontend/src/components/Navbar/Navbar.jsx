@@ -1,34 +1,35 @@
 // src/components/Navbar/Navbar.jsx
-// Navbar compartido — logo y selector de temas con etiquetas visibles
+// Navbar compartido — navegación entre secciones
 
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./navbar.css";
 
-const THEMES = [
-  { id: "default", label: "Default" },
-  { id: "brutalism", label: "Brutal" },
-  { id: "groovy", label: "Groovy" },
-  { id: "archive", label: "Archive" },
+const NAV_ITEMS = [
+  { to: "/", label: "Home", dot: "#0a0a0a" },
+  { to: "/features", label: "Características", dot: "#ff3300" },
+  { to: "/panels", label: "Paneles", dot: "#c8e64c" },
+  { to: "/about", label: "Sobre mí", dot: "#8b7355" },
 ];
 
-export const Navbar = ({ changeTheme, activeTheme }) => {
+export const Navbar = () => {
   return (
     <header className="navbar">
-      <Link to="/" className="navbar-logo">
+      <NavLink to="/" className="navbar-logo">
         fer.dev
-      </Link>
+      </NavLink>
       <nav className="navbar-themes">
-        <span className="navbar-themes-label">theme</span>
-        {THEMES.map(({ id, label }) => (
-          <button
-            key={id}
-            className={`navbar-theme-btn ${activeTheme === id ? "is-active" : ""}`}
-            onClick={() => changeTheme(id)}
-            data-theme={id}
+        {NAV_ITEMS.map(({ to, label, dot }) => (
+          <NavLink
+            key={to}
+            to={to}
+            end={to === "/"}
+            className={({ isActive }) =>
+              `navbar-theme-btn ${isActive ? "is-active" : ""}`
+            }
           >
-            <span className="navbar-theme-dot" />
+            <span className="navbar-theme-dot" style={{ background: dot }} />
             <span className="navbar-theme-name">{label}</span>
-          </button>
+          </NavLink>
         ))}
       </nav>
     </header>

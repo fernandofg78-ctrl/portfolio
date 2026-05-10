@@ -1,45 +1,38 @@
 // src/App.jsx
-// Carga el layout correspondiente al tema activo
+// Rutas independientes por sección — cada tema es una página
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useTheme } from "./context/ThemeContext";
 import { ModalProvider } from "./context/ModalContext";
-import { ProjectDetail } from "./pages/ProjectDetail";
-import { NotFound } from "./pages/NotFound";
 import { projects } from "./utils/projects";
 
 import { Layout as DefaultLayout } from "./themes/default/Layout";
 import { Layout as BrutalismLayout } from "./themes/brutalism/Layout";
 import { Layout as GroovyLayout } from "./themes/groovy/Layout";
 import { Layout as ArchiveLayout } from "./themes/archive/Layout";
-
-const layouts = {
-  default: DefaultLayout,
-  brutalism: BrutalismLayout,
-  groovy: GroovyLayout,
-  archive: ArchiveLayout,
-};
+import { NotFound } from "./pages/NotFound";
 
 const App = () => {
-  const { activeTheme, changeTheme } = useTheme();
-  const ActiveLayout = layouts[activeTheme];
-
   return (
     <BrowserRouter>
       <ModalProvider>
         <Routes>
+          <Route path="/" element={<DefaultLayout projects={projects} />} />
           <Route
-            element={
-              <ActiveLayout
-                projects={projects}
-                changeTheme={changeTheme}
-                activeTheme={activeTheme}
-              />
-            }
-          >
-            <Route path="/" element={null} />
-            <Route path="/project/:id" element={<ProjectDetail />} />
-          </Route>
+            path="/features"
+            element={<BrutalismLayout projects={projects} />}
+          />
+          <Route
+            path="/features/:id"
+            element={<BrutalismLayout projects={projects} />}
+          />
+          <Route
+            path="/panels"
+            element={<GroovyLayout projects={projects} />}
+          />
+          <Route
+            path="/about"
+            element={<ArchiveLayout projects={projects} />}
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </ModalProvider>

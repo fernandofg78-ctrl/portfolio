@@ -1,18 +1,19 @@
 // src/themes/groovy/Layout.jsx
-// Layout tema groovy 70s — naranja quemado, verde lima, hover explosivo, cursor custom
+// Layout tema groovy 70s — paneles de control con modal Arcade
 
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
-import { useModal } from "../../context/ModalContext";
-import { DefaultModal } from "../../components/modal/DefaultModal";
+import { useLocation } from "react-router-dom";
 import { projects } from "../../utils/projects";
-import "./groovy.css";
 import { Navbar } from "../../components/Navbar/Navbar";
+import "./groovy.css";
 
 const STATS = [
-  { num: "5", label: "Apps en prod." },
-  { num: "3", label: "Meses" },
-  { num: "8", label: "Años exp." },
+  {
+    num: `${projects.filter((p) => p.id !== "portfolio").length}`,
+    label: "Apps en prod.",
+  },
+  { num: "8+", label: "Años exp." },
+  { num: "∞", label: "Cafés" },
 ];
 
 const TICKER_ITEMS = [
@@ -23,10 +24,13 @@ const TICKER_ITEMS = [
   "Supabase",
   "Node.js",
   "Mapbox",
-  "JWT",
   "Cloudinary",
   "Hono",
   "i18n",
+  "TypeScript",
+  "Stripe",
+  "Sentry",
+  "React Native",
 ];
 
 /* ─── Cursor personalizado ──────────────────────────────── */
@@ -42,7 +46,6 @@ const CustomCursor = () => {
         cursorRef.current.style.top = `${e.clientY}px`;
       }
     };
-
     const onEnter = (e) => {
       if (e.target.closest(".g-card, button, a")) setHovering(true);
     };
@@ -53,7 +56,6 @@ const CustomCursor = () => {
     window.addEventListener("mousemove", move);
     document.addEventListener("mouseover", onEnter);
     document.addEventListener("mouseout", onLeave);
-
     return () => {
       window.removeEventListener("mousemove", move);
       document.removeEventListener("mouseover", onEnter);
@@ -90,48 +92,110 @@ const PhoneMockup = ({ image, title }) => (
   </>
 );
 
+/* ─── Modal de panel ────────────────────────────────────── */
+
+const PanelModal = ({ project, onClose }) => (
+  <div
+    className="gm-overlay"
+    onClick={(e) => e.target === e.currentTarget && onClose()}
+  >
+    <div className="gm-modal">
+      <div className="gm-modal-header">
+        <div className="gm-modal-header-left">
+          <span className="gm-modal-title">{project.title}</span>
+          <span className="gm-modal-sep">✦</span>
+          <span className="gm-modal-label">Panel de control</span>
+        </div>
+        <button className="gm-modal-close" onClick={onClose}>
+          ×
+        </button>
+      </div>
+      <div className="gm-modal-body">
+        {project.arcadeUrl ? (
+          <iframe
+            src={project.arcadeUrl}
+            title={`Panel ${project.title}`}
+            className="gm-modal-iframe"
+            allow="fullscreen"
+          />
+        ) : (
+          <div className="gm-modal-placeholder">
+            <div className="gm-modal-placeholder-inner">
+              <span className="gm-placeholder-icon">✦</span>
+              <h3 className="gm-placeholder-title">Demo próximamente</h3>
+              <p className="gm-placeholder-desc">
+                Estamos preparando una demo interactiva del panel de{" "}
+                <strong>{project.title}</strong>.<br />
+                Vuelve pronto.
+              </p>
+              {project.url && (
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="gm-placeholder-link"
+                >
+                  Ver la app en vivo ↗
+                </a>
+              )}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+);
+
 /* ─── Grid de proyectos ─────────────────────────────────── */
 
-const ProjectsGrid = () => {
-  const { openModal } = useModal();
-
-  return (
-    <div className="g-grid">
-      {projects.map((project, index) => (
-        <div
-          key={project.id}
-          className="g-card"
-          onClick={() => openModal(project)}
-        >
-          <div className="g-card-media">
-            <PhoneMockup image={project.image} title={project.title} />
-          </div>
-          <div className="g-card-info">
-            <div className="g-card-num">
-              {String(index + 1).padStart(2, "0")}
-            </div>
-            <h3 className="g-card-title">{project.title}</h3>
-            {index <= 1 && <p className="g-card-desc">{project.description}</p>}
-            <ul className="g-card-tags">
-              {project.tech?.slice(0, 3).map((t) => (
-                <li key={t}>{t}</li>
-              ))}
-            </ul>
-          </div>
+const ProjectsGrid = ({ onOpenPanel }) => (
+  <div className="g-grid">
+    {projects.map((project, index) => (
+      <div
+        key={project.id}
+        id={project.id}
+        className="g-card"
+        onClick={() => onOpenPanel(project)}
+      >
+        <div className="g-card-media">
+          <PhoneMockup image={project.image} title={project.title} />
         </div>
-      ))}
-    </div>
-  );
-};
+        <div className="g-card-info">
+          <div className="g-card-num">{String(index + 1).padStart(2, "0")}</div>
+          <h3 className="g-card-title">{project.title}</h3>
+          {index <= 1 && <p className="g-card-desc">{project.description}</p>}
+          <ul className="g-card-tags">
+            {project.tech?.slice(0, 3).map((t) => (
+              <li key={t}>{t}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    ))}
+  </div>
+);
 
 /* ─── Layout principal ──────────────────────────────────── */
 
-export const Layout = ({ changeTheme, activeTheme }) => {
+export const Layout = () => {
+  const [activeProject, setActiveProject] = useState(null);
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      const id = hash.replace("#", "");
+      setTimeout(() => {
+        document
+          .getElementById(id)
+          ?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 100);
+    }
+  }, [hash]);
+
   return (
     <div className="g-wrapper">
       <CustomCursor />
-
-      <Navbar changeTheme={changeTheme} activeTheme={activeTheme} />
+      <Navbar />
 
       <section className="g-hero">
         <div className="g-blob g-blob--1" />
@@ -178,13 +242,13 @@ export const Layout = ({ changeTheme, activeTheme }) => {
         <div className="g-section-header">
           <span className="g-section-num">— 01</span>
           <h2 className="g-section-title">
-            Proyectos <span>seleccionados</span>
+            Paneles <span>de control</span>
           </h2>
         </div>
-        <ProjectsGrid />
+        <ProjectsGrid onOpenPanel={setActiveProject} />
       </section>
 
-      <section id="contact" className="g-contact">
+      <section className="g-contact">
         <div className="g-contact-blob" />
         <div className="g-contact-inner">
           <h2 className="g-contact-title">
@@ -192,8 +256,19 @@ export const Layout = ({ changeTheme, activeTheme }) => {
             <span className="t-outline">MOS?</span>
           </h2>
           <div className="g-contact-right">
-            <a href="mailto:tu@email.com" className="g-contact-link">
-              tu@email.com
+            <a href="mailto:fernandofg78@gmail.com" className="g-contact-link">
+              fernandofg78@gmail.com
+            </a>
+            <a href="tel:+34699968038" className="g-contact-link">
+              +34 699 968 038
+            </a>
+            <a
+              href="https://wa.me/34699968038"
+              target="_blank"
+              rel="noreferrer"
+              className="g-contact-link g-contact-link--whatsapp"
+            >
+              WhatsApp ↗
             </a>
             <p className="g-contact-avail">✦ Disponible ahora</p>
           </div>
@@ -204,7 +279,12 @@ export const Layout = ({ changeTheme, activeTheme }) => {
         <p>© 2026 fer.dev — groovy theme</p>
       </footer>
 
-      <DefaultModal />
+      {activeProject && (
+        <PanelModal
+          project={activeProject}
+          onClose={() => setActiveProject(null)}
+        />
+      )}
     </div>
   );
 };
