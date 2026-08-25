@@ -128,7 +128,7 @@ const ProjectRow = ({ project, index, isExpanded, onToggle }) => (
 
           <div className="d-panel-links">
             {project.url && (
-              <a
+              
                 href={project.url}
                 target="_blank"
                 rel="noreferrer"
@@ -138,24 +138,31 @@ const ProjectRow = ({ project, index, isExpanded, onToggle }) => (
                 Ver en vivo ↗
               </a>
             )}
-            {project.id !== "portfolio" && (
-              <>
-                <Link
-                  to={`/features#${project.id}`}
-                  className="d-panel-link"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  Features →
-                </Link>
-                <Link
-                  to={`/panels#${project.id}`}
-                  className="d-panel-link"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  Control Panels →
-                </Link>
-              </>
+            {project.playStoreUrl && (
+              
+                href={project.playStoreUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="d-panel-link d-panel-link--playstore"
+                onClick={(e) => e.stopPropagation()}
+              >
+                Google Play ↗
+              </a>
             )}
+            <Link
+              to={`/features#${project.id}`}
+              className="d-panel-link"
+              onClick={(e) => e.stopPropagation()}
+            >
+              Features →
+            </Link>
+            <Link
+              to={`/panels#${project.id}`}
+              className="d-panel-link"
+              onClick={(e) => e.stopPropagation()}
+            >
+              Control Panels →
+            </Link>
           </div>
         </div>
         <div className="d-row-panel-mockup">
@@ -230,9 +237,9 @@ export const Layout = () => {
           </h1>
           <div className="d-intro-right">
             <p className="d-intro-desc">
-              <strong>Proyectos</strong> construidos por hobbie, por aprender,
-              por experimentar. Sin clientes, sin presión, sin fechas de
-              entrega. Solo código, creatividad e ilusión.
+              <strong>Proyectos</strong> construidos de concepto a producción,
+              con usuarios reales y en explotación activa. Full stack
+              developer freelance, disponible para nuevos proyectos.
             </p>
           </div>
         </section>

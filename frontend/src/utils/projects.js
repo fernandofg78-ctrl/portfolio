@@ -2,11 +2,9 @@
 // Datos estáticos de los proyectos del portfolio
 
 import mazarifeImg from "../assets/images/villar.webp";
-import rfgImg from "../assets/images/pera.webp";
 import santiagoImg from "../assets/images/camino-2.webp";
 import tapaImg from "../assets/images/tapa-2.webp";
 import obrasImg from "../assets/images/obras-d-nivel-1.webp";
-import ferImg from "../assets/images/fer.webp";
 
 //features para brutaliam
 import superAdminObrasd from "../assets/images/features-brutal/obras-superadmin.webp";
@@ -16,12 +14,13 @@ export const projects = [
     id: "obras",
     title: "ObrasDeNivel",
     description:
-      "SaaS para profesionales de la construcción. Web automática, presupuestos desde el móvil y control total de obras.",
+      "SaaS terminado para profesionales de la construcción. Web automática, presupuestos desde el móvil y control total de obras. Ya en producción con app en Google Play.",
     tech: [
       "Next.js",
       "TypeScript",
       "Hono",
-      "Monorepo",
+      "Turborepo",
+      "Supabase",
       "Cloudinary",
       "Sentry",
       "Stripe",
@@ -31,6 +30,8 @@ export const projects = [
     ],
     url: "https://www.obrasdenivel.es/",
     repo: null,
+    playStoreUrl:
+      "https://play.google.com/store/apps/details?id=es.obrasdenivel.app",
     image: obrasImg,
     features: [
       {
@@ -58,7 +59,7 @@ export const projects = [
         id: "obras-f4",
         title: "Textos generados con IA",
         description:
-          "Generación automática de descripciones y contenidos para la web usando inteligencia artificial.",
+          "Generación automática de descripciones y contenidos SEO para la web usando inteligencia artificial.",
         image: null,
       },
       {
@@ -70,9 +71,9 @@ export const projects = [
       },
       {
         id: "obras-f6",
-        title: "App móvil",
+        title: "App móvil en Google Play",
         description:
-          "Aplicación nativa en React Native disponible en Google Play para gestionar todo desde cualquier lugar.",
+          "Aplicación nativa en React Native, publicada en Google Play, para gestionar todo desde cualquier lugar.",
         image: null,
       },
       {
@@ -91,16 +92,9 @@ export const projects = [
       },
       {
         id: "obras-f9",
-        title: "Partidas por voz",
-        description:
-          "Crea partidas presupuestarias dictando por voz. La IA transcribe y estructura el contenido automáticamente.",
-        image: null,
-      },
-      {
-        id: "obras-f10",
         title: "Gestión de obras",
         description:
-          "Control del estado de cada obra con previsión de inicio, fin, seguimiento de fases y documentación adjunta.",
+          "Control del estado de cada obra con partidas tipo checklist, finanzas y galería de fotos.",
         image: null,
       },
     ],
@@ -109,20 +103,23 @@ export const projects = [
     id: "camino",
     title: "CaminoSantiago.app",
     description:
-      "Aplicación para peregrinos del Camino de Santiago. Etapas, mapas interactivos y chat multilingüe con traducción instantánea.",
+      "Plataforma en producción para peregrinos, hospitaleros y negocios del Camino de Santiago. Ocupación de albergues en tiempo real, mapas y chat multilingüe con IA. App en Google Play, distribuida en 46 países.",
     tech: [
       "Next.js",
       "Hono",
       "Supabase",
+      "PostGIS",
       "Mapbox",
       "i18n",
       "Claude API",
       "Cloudinary",
-      "Analytics",
-      "IGN",
+      "Stripe",
+      "Resend",
     ],
     url: "https://caminosantiago.app/",
     repo: null,
+    playStoreUrl:
+      "https://play.google.com/store/apps/details?id=com.obrasdenivel.caminomobile",
     image: santiagoImg,
     features: [
       {
@@ -141,9 +138,9 @@ export const projects = [
       },
       {
         id: "camino-f3",
-        title: "Todos los albergues",
+        title: "Ocupación de albergues en tiempo real",
         description:
-          "Base de datos completa de albergues con fotos, precios, ocupación en tiempo real y valoraciones.",
+          "Estado de ocupación (libre, casi lleno, completo, cerrado) actualizado en directo por los propios hospitaleros.",
         image: null,
       },
       {
@@ -176,9 +173,9 @@ export const projects = [
       },
       {
         id: "camino-f8",
-        title: "App React Native",
+        title: "App en Google Play",
         description:
-          "Versión móvil nativa en desarrollo para iOS y Android con funcionalidad offline.",
+          "Aplicación nativa publicada en Google Play, distribuida en 46 países.",
         image: null,
       },
       {
@@ -202,7 +199,7 @@ export const projects = [
     title: "Nextapa",
     description:
       "App para descubrir tapas cercanas con geolocalización 2dsphere, horarios en tiempo real y panel multi-rol. Proyecto fin de máster.",
-    tech: ["React", "Express", "MongoDB", "2dsphere"],
+    tech: ["React", "Express", "MongoDB", "2dsphere", "Mapbox"],
     url: "https://tfm-amarillo-frontend.onrender.com/",
     repo: null,
     image: tapaImg,
@@ -216,30 +213,30 @@ export const projects = [
       },
       {
         id: "nextapa-f2",
-        title: "Filtros avanzados",
+        title: "Disponibilidad en tiempo real",
         description:
-          "Filtra por precio, tipo de tapa, tipo de establecimiento y disponibilidad en tiempo real.",
+          "Estado de apertura y disponibilidad de tapas calculado dinámicamente y consistente en toda la app.",
         image: null,
       },
       {
         id: "nextapa-f3",
         title: "Valoraciones",
         description:
-          "Sistema de valoración independiente para tapas y establecimientos, con puntuación y comentarios.",
+          "Sistema de valoración por establecimiento, con puntuación media calculada en base de datos.",
         image: null,
       },
       {
         id: "nextapa-f4",
         title: "Panel de administrador",
         description:
-          "Control total de la plataforma: usuarios, establecimientos, tapas y moderación de contenido.",
+          "Verificación de nuevos negocios, moderación de contenido y gestión de usuarios y reseñas.",
         image: null,
       },
       {
         id: "nextapa-f5",
         title: "Panel de hostelero",
         description:
-          "Gestión integral del negocio: carta, horarios, fotos, disponibilidad de tapas y estadísticas.",
+          "Gestión integral del negocio: carta, horarios, fotos y disponibilidad de tapas.",
         image: null,
       },
     ],
@@ -248,103 +245,54 @@ export const projects = [
     id: "mazarife",
     title: "Mazarife.es",
     description:
-      "App para asociación cultural con acceso por roles, gestión de contenido y monitorización en producción.",
-    tech: ["React", "Node", "Supabase", "Claude API", "Sentry"],
+      "App PWA para asociación cultural con acceso por roles, gestión de contenido, finanzas y monitorización en producción.",
+    tech: [
+      "React",
+      "Node",
+      "Express",
+      "Supabase",
+      "Cloudinary",
+      "Sentry",
+      "PWA",
+    ],
     url: "https://mazarife.es/",
     repo: null,
     image: mazarifeImg,
+    arcadeUrl: "https://app.arcade.software/share/2lFHk4GKUoZX6kE9nP9D",
     features: [
       {
         id: "mazarife-f1",
+        title: "Instalable como PWA",
+        description:
+          "Instalación nativa en Android y guía manual en iOS, para usarla como una app más del móvil.",
+        image: null,
+      },
+      {
+        id: "mazarife-f2",
         title: "Contenido dinámico público",
         description:
           "La parte pública muestra contenido generado y gestionado desde el panel de administración.",
         image: null,
       },
       {
-        id: "mazarife-f2",
+        id: "mazarife-f3",
         title: "Control de usuarios",
         description:
           "Gestión de altas, bajas y roles de los miembros de la asociación con acceso por niveles.",
         image: null,
       },
       {
-        id: "mazarife-f3",
-        title: "Control de finanzas",
+        id: "mazarife-f4",
+        title: "Finanzas completas",
         description:
-          "Registro de ingresos, gastos, facturas y balances para la gestión económica de la asociación.",
+          "Ingresos y gastos por categoría, reembolsos con estado persistente, adjuntos de factura, comisión bancaria automática y exportación de informes en PDF.",
         image: null,
       },
       {
-        id: "mazarife-f4",
+        id: "mazarife-f5",
         title: "Blog de actividades",
         description:
           "Creación y publicación de artículos sobre actividades culturales directamente desde el panel.",
-        image: null,
-      },
-    ],
-  },
-  {
-    id: "rfg",
-    title: "RFG Construcción",
-    description:
-      "Sitio web corporativo para empresa constructora. Germen de la idea que derivó en ObrasDeNivel.",
-    tech: ["Next.js", "Supabase"],
-    url: "https://rfg-khaki.vercel.app/",
-    repo: null,
-    image: rfgImg,
-    features: [
-      {
-        id: "rfg-f1",
-        title: "Posicionamiento local",
-        description:
-          "Web optimizada para SEO local, orientada a captar clientes en la zona geográfica del negocio.",
-        image: null,
-      },
-      {
-        id: "rfg-f2",
-        title: "Panel de administración",
-        description:
-          "Panel supersencillo e intuitivo para que el cliente gestione su contenido sin conocimientos técnicos.",
-        image: null,
-      },
-      {
-        id: "rfg-f3",
-        title: "Gestión de obras con tags",
-        description:
-          "Creación y organización de obras mediante etiquetas para clasificar por tipo, estado o zona.",
-        image: null,
-      },
-    ],
-  },
-  {
-    id: "portfolio",
-    title: "Este portfolio",
-    description:
-      "Portfolio personal con sistema de temas visuales intercambiables y mockups interactivos.",
-    tech: ["React", "Vite", "CSS"],
-    url: null,
-    repo: null,
-    image: ferImg,
-    features: [
-      {
-        id: "portfolio-f1",
-        title: "4 temas visuales",
-        description:
-          "Sistema de temas intercambiables en tiempo real: Default, Brutalism, Groovy y Archive, cada uno con su identidad.",
-        image: null,
-      },
-      {
-        id: "portfolio-f2",
-        title: "Mockups interactivos",
-        description:
-          "Cada proyecto muestra un iPhone con la web real cargada en un iframe, navegable en directo.",
-        image: null,
-      },
-      {
-        id: "portfolio-f3",
-        title: "Easter egg",
-        description: "Abre tres proyectos distintos y descubre qué pasa... 🥚",
         image: null,
       },
     ],

@@ -65,8 +65,8 @@ const VALUE_CARDS = [
   },
   {
     num: "03",
-    title: "Estabilidad",
-    desc: "La edad que algunos ven como obstáculo es en realidad garantía. No busco un trampolín. Busco un equipo donde crecer y aportar a largo plazo.",
+    title: "Compromiso",
+    desc: "Cada proyecto de este portfolio sigue vivo, en producción, con usuarios reales. No entrego código y desaparezco: acompaño el producto mientras aporta valor.",
   },
   {
     num: "04",
@@ -115,7 +115,7 @@ export const Layout = () => {
           </h1>
           <div className="a-hero-bottom">
             <p className="a-hero-sub">
-              47 años · León · Disponible para trabajo remoto
+              47 años · León · Freelance — disponible para proyectos remotos
             </p>
             <div className="a-stats">
               {STATS.map(({ num, label }) => (
@@ -133,7 +133,7 @@ export const Layout = () => {
           <p className="a-hero-intro">
             No soy el perfil <em>habitual</em>. Soy alguien con ocho años de
             experiencia real en el mundo digital que decidió aprender a
-            construir las soluciones que antes vendía.
+            construir las soluciones que antes montaba.
           </p>
           <p
             className="a-hero-intro"
@@ -156,10 +156,10 @@ export const Layout = () => {
           </div>
           <div className="a-about-right">
             <p className="a-about-text">
-              Tengo 47 años, vivo en León y no puedo trasladarme. Lo digo sin
+              Tengo 47 años, vivo en León y trabajo en remoto. Lo digo sin
               rodeos porque prefiero la honestidad a las sorpresas. Lo que sí
-              puedo ofrecer es algo que pocos juniors tienen: perspectiva real
-              del mundo digital.
+              puedo ofrecer es algo que pocos perfiles junior tienen:
+              perspectiva real del mundo digital.
             </p>
             <p className="a-about-text">
               Durante 8 años trabajé como{" "}
@@ -167,27 +167,25 @@ export const Layout = () => {
                 Account Manager en una empresa de servicios digitales
               </strong>
               , donde publiqué más de 2.000 webs para autónomos y pequeños
-              negocios. Gestioné dominios, redireccionamientos, campañas de Ads
-              y, sobre todo, aprendí a entender qué necesita realmente un
-              cliente y qué diferencia una web que funciona de una que solo
-              existe.
+              negocios. Gestioné dominios, campañas de Ads, optimicé SEO y,
+              sobre todo, aprendí a entender qué necesita realmente un cliente y
+              qué diferencia una web que funciona de una que solo existe.
             </p>
             <p className="a-about-text">
               Esa experiencia me hizo ver las limitaciones del modelo. Así que
               decidí aprender a construir las soluciones yo mismo. El resultado
               es este portfolio:{" "}
               <strong>
-                cinco aplicaciones en producción con usuarios reales
+                cuatro aplicaciones en producción con usuarios reales
               </strong>
-              , construidas desde cero en menos de un año, incluyendo un SaaS
-              multitenant con app móvil y un sistema de chat multilingüe con
-              traducción automática vía IA.
+              , dos de ellas ya publicadas en Google Play, incluyendo un SaaS
+              multitenant con app móvil y una plataforma con chat multilingüe
+              traducido por IA en tiempo real.
             </p>
             <p className="a-about-text">
-              No soy el junior más rápido del mercado, pero soy alguien que no
-              va a desaparecer a los seis meses, que entiende el negocio detrás
-              del código y que lleva la misma determinación que puso en aprender
-              a programar a cada proyecto que aborda.
+              Trabajo como freelance porque entiendo el negocio detrás del
+              código: cada proyecto que acepto lo llevo de concepto a producción
+              con la misma determinación que puse en aprender a programar.
             </p>
           </div>
         </div>
@@ -269,7 +267,9 @@ export const Layout = () => {
             WhatsApp ↗
           </a>
         </div>
-        <p className="a-contact-avail">Disponible ahora — remoto preferente</p>
+        <p className="a-contact-avail">
+          Disponible para proyectos freelance — remoto
+        </p>
       </section>
 
       <footer className="a-footer">
