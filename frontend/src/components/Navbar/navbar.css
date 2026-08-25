@@ -11,88 +11,12 @@
 }
 
 .navbar-logo {
-  /* src/components/Navbar/navbar.css */
-  /* Navbar compartido — navegación entre secciones */
-
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.25rem 3rem;
-    position: relative;
-    z-index: 10;
-  }
-
-  .navbar-logo {
-    font-size: 1rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    text-decoration: none;
-    color: inherit;
-  }
-
-  /* ─── Nav ───────────────────────────────────────────────── */
-
-  .navbar-themes {
-    display: flex;
-    align-items: center;
-    gap: 0.15rem;
-  }
-
-  .navbar-theme-btn {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    padding: 0.35rem 0.7rem;
-    border: 1px solid transparent;
-    border-radius: 2px;
-    background: transparent;
-    cursor: pointer;
-    text-decoration: none;
-    transition: border-color 0.2s ease;
-    color: inherit;
-  }
-
-  .navbar-theme-btn:hover {
-    border-color: currentColor;
-  }
-
-  .navbar-theme-btn.is-active {
-    border-color: currentColor;
-  }
-
-  .navbar-theme-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    transition: transform 0.2s ease;
-  }
-
-  .navbar-theme-btn:hover .navbar-theme-dot {
-    transform: scale(1.3);
-  }
-
-  .navbar-theme-name {
-    font-size: 0.65rem;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    opacity: 0.5;
-    transition: opacity 0.2s ease;
-  }
-
-  .navbar-theme-btn:hover .navbar-theme-name,
-  .navbar-theme-btn.is-active .navbar-theme-name {
-    opacity: 1;
-  }
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: -0.02em;
   text-decoration: none;
   color: inherit;
 }
-
 /* ─── Themes ────────────────────────────────────────────── */
 
 .navbar-themes {
@@ -175,4 +99,30 @@
 }
 .navbar-theme-btn[data-theme="archive"] .navbar-theme-dot {
   background: #8b7355;
+}
+
+/* ─── Responsive ────────────────────────────────────────── */
+
+@media (max-width: 700px) {
+  .navbar {
+    padding: 1rem 1.25rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .navbar-themes-label {
+    display: none; /* quita ruido, no es imprescindible en móvil */
+  }
+
+  .navbar-themes {
+    gap: 0;
+  }
+
+  .navbar-theme-btn {
+    padding: 0.3rem 0.5rem;
+  }
+
+  .navbar-theme-name {
+    display: none; /* solo el dot en móvil */
+  }
 }

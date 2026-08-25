@@ -13,6 +13,11 @@ html {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
 }
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
 
 img {
   display: block;
