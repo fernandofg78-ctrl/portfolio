@@ -20,8 +20,8 @@ const EggModal = ({ onClose }) => (
         <div className="egg-modal-header-left">
           <span className="egg-modal-emoji">🥚</span>
           <span className="egg-modal-title">
-            ¿Te apetece un juego?, ¡adivina la palabra oculta en Inglés y
-            Español!
+            MI PRIMER PROYECTO EN REACT :-D ¿Te apetece un juego?, ¡adivina la
+            palabra oculta en Inglés y Español!
           </span>
         </div>
         <button className="egg-modal-close" onClick={onClose}>

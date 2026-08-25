@@ -8,10 +8,7 @@ import { Navbar } from "../../components/Navbar/Navbar";
 import "./groovy.css";
 
 const STATS = [
-  {
-    num: `${projects.filter((p) => p.id !== "portfolio").length}`,
-    label: "Apps en prod.",
-  },
+  { num: `${projects.length}`, label: "Apps en prod." },
   { num: "8+", label: "Años exp." },
   { num: "∞", label: "Cafés" },
 ];
@@ -128,16 +125,28 @@ const PanelModal = ({ project, onClose }) => (
                 <strong>{project.title}</strong>.<br />
                 Vuelve pronto.
               </p>
-              {project.url && (
-                <a
-                  href={project.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="gm-placeholder-link"
-                >
-                  Ver la app en vivo ↗
-                </a>
-              )}
+              <div className="gm-placeholder-links">
+                {project.url && (
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="gm-placeholder-link"
+                  >
+                    Ver la app en vivo ↗
+                  </a>
+                )}
+                {project.playStoreUrl && (
+                  <a
+                    href={project.playStoreUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="gm-placeholder-link gm-placeholder-link--playstore"
+                  >
+                    Google Play ↗
+                  </a>
+                )}
+              </div>
             </div>
           </div>
         )}
@@ -214,7 +223,7 @@ export const Layout = () => {
             Construyo apps que <em>funcionan en producción</em>.<br />
             React, Node, MongoDB.
             <br />
-            Algunos proyectos con usuarios reales.
+            Freelance, disponible para nuevos proyectos.
           </p>
           <div className="g-stats">
             {STATS.map(({ num, label }) => (
@@ -270,7 +279,9 @@ export const Layout = () => {
             >
               WhatsApp ↗
             </a>
-            <p className="g-contact-avail">✦ Disponible ahora</p>
+            <p className="g-contact-avail">
+              ✦ Disponible para proyectos freelance
+            </p>
           </div>
         </div>
       </section>

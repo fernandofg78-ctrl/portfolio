@@ -37,10 +37,7 @@ const TICKER_ICONS = [
 ];
 
 const STATS = [
-  {
-    num: `${projects.filter((p) => p.id !== "portfolio").length}`,
-    label: "Apps en prod.",
-  },
+  { num: `${projects.length}`, label: "Apps en prod." },
   { num: "8+", label: "Años exp." },
   { num: "∞", label: "Cafés" },
 ];
@@ -144,17 +141,30 @@ const ProjectCard = ({ project, index, onFeatureClick }) => {
         ))}
       </div>
 
-      {project.url && (
-        <a
-          href={project.url}
-          target="_blank"
-          rel="noreferrer"
-          className="bc-card-link"
-          onClick={(e) => e.stopPropagation()}
-        >
-          Ver en vivo ↗
-        </a>
-      )}
+      <div className="bc-card-links">
+        {project.url && (
+          <address
+            href={project.url}
+            target="_blank"
+            rel="noreferrer"
+            className="bc-card-link"
+            onClick={(e) => e.stopPropagation()}
+          >
+            Ver en vivo ↗
+          </address>
+        )}
+        {project.playStoreUrl && (
+          <address
+            href={project.playStoreUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="bc-card-link bc-card-link--playstore"
+            onClick={(e) => e.stopPropagation()}
+          >
+            Google Play ↗
+          </address>
+        )}
+      </div>
     </div>
   );
 };
@@ -275,7 +285,9 @@ export const Layout = () => {
             >
               WhatsApp ↗
             </a>
-            <p className="b-contact-avail">Disponible ahora</p>
+            <p className="b-contact-avail">
+              Disponible para proyectos freelance
+            </p>
           </div>
         </div>
       </section>

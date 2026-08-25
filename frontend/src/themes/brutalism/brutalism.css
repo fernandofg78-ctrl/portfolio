@@ -465,6 +465,12 @@
 
 /* ─── Link ver en vivo ──────────────────────────────────── */
 
+.bc-card-links {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
 .bc-card-link {
   font-family: var(--font-mono);
   font-size: 0.65rem;
@@ -481,6 +487,14 @@
 
 .bc-card-link:hover {
   color: var(--text);
+}
+
+.bc-card-link--playstore {
+  color: #00aa00;
+}
+
+.bc-card-link--playstore:hover {
+  color: #007700;
 }
 
 /* ─── Modal de feature ──────────────────────────────────── */
