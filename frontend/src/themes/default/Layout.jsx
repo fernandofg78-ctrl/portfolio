@@ -193,7 +193,7 @@ export const Layout = () => {
       setOpenedIds((prev) => {
         const next = new Set(prev);
         next.add(project.id);
-        if (next.size >= 3) {
+        if (next.size >= 2) {
           setTimeout(() => setEggVisible(true), 400);
           eggTriggered.current = true;
         }
