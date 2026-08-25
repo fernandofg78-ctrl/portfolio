@@ -128,7 +128,7 @@ const ProjectRow = ({ project, index, isExpanded, onToggle }) => (
 
           <div className="d-panel-links">
             {project.url && (
-              
+              <a
                 href={project.url}
                 target="_blank"
                 rel="noreferrer"
@@ -139,7 +139,7 @@ const ProjectRow = ({ project, index, isExpanded, onToggle }) => (
               </a>
             )}
             {project.playStoreUrl && (
-              
+              <a
                 href={project.playStoreUrl}
                 target="_blank"
                 rel="noreferrer"
@@ -238,8 +238,8 @@ export const Layout = () => {
           <div className="d-intro-right">
             <p className="d-intro-desc">
               <strong>Proyectos</strong> construidos de concepto a producción,
-              con usuarios reales y en explotación activa. Full stack
-              developer freelance, disponible para nuevos proyectos.
+              con usuarios reales y en explotación activa. Full stack developer
+              freelance, disponible para nuevos proyectos.
             </p>
           </div>
         </section>
