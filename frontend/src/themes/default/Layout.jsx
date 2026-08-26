@@ -7,6 +7,7 @@ import { DefaultModal } from "../../components/modal/DefaultModal";
 import { Navbar } from "../../components/Navbar/Navbar";
 import { projects } from "../../utils/projects";
 import { PhoneMockup } from "../../components/modal/PhoneMockup";
+import { DocsModal } from "../../components/modal/DocsModal";
 import "./default.css";
 
 // ── Easter Egg: Modal Hangman ────────────────────────────────
@@ -89,89 +90,112 @@ const FloatingEgg = ({ onCrack, cracking, broken }) => (
 );
 
 // ── Fila de proyecto ─────────────────────────────────────────
-const ProjectRow = ({ project, index, isExpanded, onToggle }) => (
-  <div
-    className={`d-row ${isExpanded ? "d-row--expanded" : ""} ${index === projects.length - 1 ? "d-row--last" : ""}`}
-  >
-    <div className="d-row-header" onClick={onToggle}>
-      <span className="d-row-num">{String(index + 1).padStart(2, "0")}</span>
-      <div className="d-row-header-content">
-        <h2 className="d-row-title">{project.title}</h2>
-        <ul className="d-row-tags">
-          {project.tech?.slice(0, 5).map((t) => (
-            <li key={t}>{t}</li>
-          ))}
-        </ul>
-      </div>
-      <div className="d-row-toggle">
-        <span className="d-row-toggle-icon">{isExpanded ? "−" : "+"}</span>
-      </div>
-    </div>
+const ProjectRow = ({ project, index, isExpanded, onToggle }) => {
+  const [showDocs, setShowDocs] = useState(false);
 
-    <div className="d-row-panel" onClick={onToggle}>
-      <div className="d-row-panel-inner" onClick={(e) => e.stopPropagation()}>
-        <div className="d-row-panel-info" onClick={onToggle}>
-          <h3 className="d-panel-title">{project.title}</h3>
-          <p className="d-panel-desc">{project.description}</p>
-          {project.features && (
-            <ul className="d-panel-features">
-              {project.features.map((f, i) => (
-                <li key={i}>{f.title}</li>
-              ))}
-            </ul>
-          )}
-          <ul className="d-panel-tags">
-            {project.tech?.map((t) => (
+  return (
+    <div
+      className={`d-row ${isExpanded ? "d-row--expanded" : ""} ${index === projects.length - 1 ? "d-row--last" : ""}`}
+    >
+      <div className="d-row-header" onClick={onToggle}>
+        <span className="d-row-num">{String(index + 1).padStart(2, "0")}</span>
+        <div className="d-row-header-content">
+          <h2 className="d-row-title">{project.title}</h2>
+          <ul className="d-row-tags">
+            {project.tech?.slice(0, 5).map((t) => (
               <li key={t}>{t}</li>
             ))}
           </ul>
-
-          <div className="d-panel-links">
-            {project.url && (
-              <a
-                href={project.url}
-                target="_blank"
-                rel="noreferrer"
-                className="d-panel-link d-panel-link--primary"
-                onClick={(e) => e.stopPropagation()}
-              >
-                Ver en vivo ↗
-              </a>
-            )}
-            {project.playStoreUrl && (
-              <a
-                href={project.playStoreUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="d-panel-link d-panel-link--playstore"
-                onClick={(e) => e.stopPropagation()}
-              >
-                Google Play ↗
-              </a>
-            )}
-            <Link
-              to={`/features#${project.id}`}
-              className="d-panel-link"
-              onClick={(e) => e.stopPropagation()}
-            >
-              Features →
-            </Link>
-            <Link
-              to={`/panels#${project.id}`}
-              className="d-panel-link"
-              onClick={(e) => e.stopPropagation()}
-            >
-              Control Panels →
-            </Link>
-          </div>
         </div>
-        <div className="d-row-panel-mockup">
-          <PhoneMockup url={project.url} title={project.title} />
+        <div className="d-row-toggle">
+          <span className="d-row-toggle-icon">{isExpanded ? "−" : "+"}</span>
         </div>
       </div>
+
+      <div className="d-row-panel" onClick={onToggle}>
+        <div className="d-row-panel-inner" onClick={(e) => e.stopPropagation()}>
+          <div className="d-row-panel-info" onClick={onToggle}>
+            <h3 className="d-panel-title">{project.title}</h3>
+            <p className="d-panel-desc">{project.description}</p>
+            {project.features && (
+              <ul className="d-panel-features">
+                {project.features.map((f, i) => (
+                  <li key={i}>{f.title}</li>
+                ))}
+              </ul>
+            )}
+            <ul className="d-panel-tags">
+              {project.tech?.map((t) => (
+                <li key={t}>{t}</li>
+              ))}
+            </ul>
+
+            <div className="d-panel-links">
+              {project.url && (
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="d-panel-link d-panel-link--primary"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  Ver en vivo ↗
+                </a>
+              )}
+              {project.playStoreUrl && (
+                <a
+                  href={project.playStoreUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="d-panel-link d-panel-link--playstore"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  Google Play ↗
+                </a>
+              )}
+              <Link
+                to={`/features#${project.id}`}
+                className="d-panel-link"
+                onClick={(e) => e.stopPropagation()}
+              >
+                Features →
+              </Link>
+              <Link
+                to={`/panels#${project.id}`}
+                className="d-panel-link"
+                onClick={(e) => e.stopPropagation()}
+              >
+                Control Panels →
+              </Link>
+              {project.docsContent && (
+                <button
+                  className="d-panel-link d-panel-link--docs"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setShowDocs(true);
+                  }}
+                >
+                  Documentación →
+                </button>
+              )}
+            </div>
+          </div>
+          <div className="d-row-panel-mockup">
+            <PhoneMockup url={project.url} title={project.title} />
+          </div>
+        </div>
+      </div>
+
+      {showDocs && (
+        <DocsModal
+          content={project.docsContent}
+          filename={project.docsFilename}
+          onClose={() => setShowDocs(false)}
+        />
+      )}
     </div>
-  </div>
-);
+  );
+};
 
 // ── Layout principal ─────────────────────────────────────────
 export const Layout = () => {

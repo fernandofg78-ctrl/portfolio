@@ -392,6 +392,12 @@
   border-color: #1a7d3f;
 }
 
+.d-panel-link--docs {
+  background: transparent;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+}
 /* ─── Mockup ─────────────────────────────────────────────── */
 
 .d-row-panel-mockup {
