@@ -20,11 +20,12 @@ export const projects = [
       "TypeScript",
       "Hono",
       "Turborepo",
+      "React Native",
+      "App en Google Play",
       "Supabase",
       "Cloudinary",
       "Sentry",
       "Stripe",
-      "React Native",
       "WhatsApp API",
       "IA",
     ],
@@ -107,10 +108,11 @@ export const projects = [
     tech: [
       "Next.js",
       "Hono",
-      "Supabase",
+      "App en Google Play",
+      "i18n",
+      "Chat multi idioma",
       "PostGIS",
       "Mapbox",
-      "i18n",
       "Claude API",
       "Cloudinary",
       "Stripe",
@@ -195,53 +197,6 @@ export const projects = [
     ],
   },
   {
-    id: "nextapa",
-    title: "Nextapa",
-    description:
-      "App para descubrir tapas cercanas con geolocalización 2dsphere, horarios en tiempo real y panel multi-rol. Proyecto fin de máster.",
-    tech: ["React", "Express", "MongoDB", "2dsphere", "Mapbox"],
-    url: "https://tfm-amarillo-frontend.onrender.com/",
-    repo: null,
-    image: tapaImg,
-    features: [
-      {
-        id: "nextapa-f1",
-        title: "Búsqueda por proximidad",
-        description:
-          "Geolocalización con índices 2dsphere de MongoDB para encontrar tapas y locales ordenados por distancia real.",
-        image: null,
-      },
-      {
-        id: "nextapa-f2",
-        title: "Disponibilidad en tiempo real",
-        description:
-          "Estado de apertura y disponibilidad de tapas calculado dinámicamente y consistente en toda la app.",
-        image: null,
-      },
-      {
-        id: "nextapa-f3",
-        title: "Valoraciones",
-        description:
-          "Sistema de valoración por establecimiento, con puntuación media calculada en base de datos.",
-        image: null,
-      },
-      {
-        id: "nextapa-f4",
-        title: "Panel de administrador",
-        description:
-          "Verificación de nuevos negocios, moderación de contenido y gestión de usuarios y reseñas.",
-        image: null,
-      },
-      {
-        id: "nextapa-f5",
-        title: "Panel de hostelero",
-        description:
-          "Gestión integral del negocio: carta, horarios, fotos y disponibilidad de tapas.",
-        image: null,
-      },
-    ],
-  },
-  {
     id: "mazarife",
     title: "Mazarife.es",
     description:
@@ -293,6 +248,102 @@ export const projects = [
         title: "Blog de actividades",
         description:
           "Creación y publicación de artículos sobre actividades culturales directamente desde el panel.",
+        image: null,
+      },
+      {
+        id: "mazarife-f6",
+        title: "Infraestructura en Vercel y Render",
+        description:
+          "Frontend desplegado en Vercel y backend en Render, con monitorización de errores en tiempo real vía Sentry.",
+        image: null,
+      },
+      {
+        id: "mazarife-f7",
+        title: "Tareas automatizadas con cron",
+        description:
+          "Procesos periódicos como la comisión bancaria mensual se ejecutan solos mediante cron jobs, sin intervención manual.",
+        image: null,
+      },
+      {
+        id: "mazarife-f8",
+        title: "Coste operativo: 0€",
+        description:
+          "Toda la infraestructura en producción funciona sobre planes gratuitos (Vercel, Render, Supabase, Cloudinary), sin coste de mantenimiento para la asociación.",
+        image: null,
+      },
+      {
+        id: "mazarife-f9",
+        title: "Movimientos recurrentes automatizados",
+        description:
+          "Generación automática de movimientos periódicos (cuotas, comisiones) para evitar la carga manual repetitiva cada mes.",
+        image: null,
+      },
+    ],
+  },
+  {
+    id: "nextapa",
+    title: "Nextapa",
+    description:
+      "App para descubrir tapas cercanas con geolocalización 2dsphere, horarios en tiempo real y panel multi-rol. Proyecto fin de máster.",
+    tech: ["React", "Express", "MongoDB", "2dsphere", "Mapbox"],
+    url: "https://tfm-amarillo-frontend.onrender.com/",
+    repo: null,
+    image: tapaImg,
+    features: [
+      {
+        id: "nextapa-f1",
+        title: "Búsqueda por proximidad",
+        description:
+          "Geolocalización con índices 2dsphere de MongoDB para encontrar tapas y locales ordenados por distancia real.",
+        image: null,
+      },
+      {
+        id: "nextapa-f2",
+        title: "Disponibilidad en tiempo real",
+        description:
+          "Estado de apertura y disponibilidad de tapas calculado dinámicamente y consistente en toda la app.",
+        image: null,
+      },
+      {
+        id: "nextapa-f3",
+        title: "Valoraciones",
+        description:
+          "Sistema de valoración por establecimiento, con puntuación media calculada en base de datos.",
+        image: null,
+      },
+      {
+        id: "nextapa-f4",
+        title: "Panel de administrador",
+        description:
+          "Verificación de nuevos negocios, moderación de contenido y gestión de usuarios y reseñas.",
+        image: null,
+      },
+      {
+        id: "nextapa-f5",
+        title: "Panel de hostelero",
+        description:
+          "Gestión integral del negocio: carta, horarios, fotos y disponibilidad de tapas.",
+        image: null,
+      },
+      {
+        id: "nextapa-f6",
+        title: "Búsqueda instantánea optimizada",
+        description:
+          "Resultados en vivo con debounce de 300ms y cancelación de peticiones anteriores para una experiencia fluida sin sobrecarga del servidor.",
+        image: null,
+      },
+      {
+        id: "nextapa-f7",
+        title: "Notificaciones en tiempo real",
+        description:
+          "Avisos instantáneos vía WebSocket para hosteleros y administradores ante nueva actividad en la plataforma.",
+        image: null,
+      },
+      {
+        id: "nextapa-f8",
+        title: "Panel responsive",
+        description:
+          "Sidebar fijo en escritorio y menú hamburguesa en móvil, adaptado para gestionar el negocio desde cualquier dispositivo.",
         image: null,
       },
     ],
