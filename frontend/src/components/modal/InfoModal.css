@@ -153,11 +153,10 @@
   border-color: #1a1a1a;
 }
 
-/* ─── Placeholder doc técnica ───────────────────────────── */
-
-.im-placeholder-text {
-  font-size: 0.8rem;
-  color: #ccc;
-  font-style: italic;
-  font-family: "Inter", sans-serif;
+.im-link--docs {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  cursor: pointer;
+  font: inherit;
 }

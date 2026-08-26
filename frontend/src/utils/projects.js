@@ -9,6 +9,11 @@ import obrasImg from "../assets/images/obras-d-nivel-1.webp";
 //features para brutaliam
 import superAdminObrasd from "../assets/images/features-brutal/obras-superadmin.webp";
 
+import mazarifeDoc from "../content/docs/mazarife-documentacion-tecnica.md?raw";
+import nextapaDoc from "../content/docs/nexTapa_documentacion_tecnica.md?raw";
+import obrasDoc from "../content/docs/obras-de-nivel-documentacion-tecnica.md?raw";
+import caminoDoc from "../content/docs/TuCamino_Documentacion_Tecnica.md?raw";
+
 export const projects = [
   {
     id: "obras",
@@ -34,6 +39,10 @@ export const projects = [
     playStoreUrl:
       "https://play.google.com/store/apps/details?id=es.obrasdenivel.app",
     image: obrasImg,
+
+    docsContent: obrasDoc,
+    docsFilename: "obras-de-nivel-documentacion-tecnica.md",
+
     features: [
       {
         id: "obras-f1",
@@ -123,6 +132,10 @@ export const projects = [
     playStoreUrl:
       "https://play.google.com/store/apps/details?id=com.obrasdenivel.caminomobile",
     image: santiagoImg,
+
+    docsContent: caminoDoc,
+    docsFilename: "TuCamino_Documentacion_Tecnica.md",
+
     features: [
       {
         id: "camino-f1",
@@ -214,6 +227,10 @@ export const projects = [
     repo: null,
     image: mazarifeImg,
     arcadeUrl: "https://app.arcade.software/share/2lFHk4GKUoZX6kE9nP9D",
+
+    docsContent: mazarifeDoc,
+    docsFilename: "mazarife-documentacion-tecnica.md",
+
     features: [
       {
         id: "mazarife-f1",
@@ -289,6 +306,10 @@ export const projects = [
     url: "https://tfm-amarillo-frontend.onrender.com/",
     repo: null,
     image: tapaImg,
+
+    docsContent: nextapaDoc,
+    docsFilename: "nexTapa_documentacion_tecnica.md",
+
     features: [
       {
         id: "nextapa-f1",
