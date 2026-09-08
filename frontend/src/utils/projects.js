@@ -208,6 +208,29 @@ export const projects = [
         image: null,
       },
     ],
+
+    demoRoles: [
+      {
+        role: "peregrino",
+        label: "Peregrino",
+        url: "https://camino-web-sandbox.vercel.app/demo-login?role=peregrino",
+      },
+      {
+        role: "albergue",
+        label: "Albergue",
+        url: "https://camino-web-sandbox.vercel.app/demo-login?role=albergue",
+      },
+      {
+        role: "negocio",
+        label: "Negocio",
+        url: "https://camino-web-sandbox.vercel.app/demo-login?role=negocio",
+      },
+      {
+        role: "admin",
+        label: "Admin",
+        url: "https://camino-web-sandbox.vercel.app/demo-login?role=admin",
+      },
+    ],
   },
   {
     id: "mazarife",

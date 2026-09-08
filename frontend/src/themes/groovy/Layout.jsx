@@ -89,6 +89,35 @@ const PhoneMockup = ({ image, title }) => (
   </>
 );
 
+/* ─── Selector de roles (demo sandbox) ──────────────────── */
+
+const RoleSelector = ({ roles }) => (
+  <div className="gm-roles">
+    <div className="gm-roles-inner">
+      <span className="gm-placeholder-icon">✦</span>
+      <h3 className="gm-placeholder-title">Entra como...</h3>
+      <p className="gm-placeholder-desc">
+        Sandbox en vivo con datos de prueba.
+        <br />
+        Elige un rol para explorar el panel correspondiente.
+      </p>
+      <div className="gm-roles-grid">
+        {roles.map(({ role, label, url }) => (
+          <a
+            key={role}
+            href={url}
+            target="_blank"
+            rel="noreferrer"
+            className="gm-role-btn"
+          >
+            {label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+);
+
 /* ─── Modal de panel ────────────────────────────────────── */
 
 const PanelModal = ({ project, onClose }) => (
@@ -108,7 +137,9 @@ const PanelModal = ({ project, onClose }) => (
         </button>
       </div>
       <div className="gm-modal-body">
-        {project.arcadeUrl ? (
+        {project.demoRoles ? (
+          <RoleSelector roles={project.demoRoles} />
+        ) : project.arcadeUrl ? (
           <iframe
             src={project.arcadeUrl}
             title={`Panel ${project.title}`}
