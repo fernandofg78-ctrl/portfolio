@@ -13,7 +13,7 @@ import mazarifeDoc from "../content/docs/mazarife-documentacion-tecnica.md?raw";
 import nextapaDoc from "../content/docs/nexTapa_documentacion_tecnica.md?raw";
 import obrasDoc from "../content/docs/obras-de-nivel-documentacion-tecnica.md?raw";
 import caminoDoc from "../content/docs/TuCamino_Documentacion_Tecnica.md?raw";
-
+import portfolioDoc from "../content/docs/portfolio-documentacion-tecnica.md?raw";
 export const projects = [
   {
     id: "obras",
@@ -388,6 +388,65 @@ export const projects = [
         title: "Panel responsive",
         description:
           "Sidebar fijo en escritorio y menú hamburguesa en móvil, adaptado para gestionar el negocio desde cualquier dispositivo.",
+        image: null,
+      },
+    ],
+  },
+  {
+    id: "portfolio",
+    title: "Portfolio",
+    description:
+      "Portfolio multi-tema construido como proyecto en sí mismo: 4 rutas con identidad visual propia, sistema de demos en vivo con autenticación aislada en sandbox, y documentación técnica embebida de cada proyecto.",
+    tech: ["Vite", "React", "React Router", "CSS multi-tema", "Vercel"],
+    url: "https://fer.dev/", // ajustar a la URL real de producción
+    repo: null,
+    image: null, // pendiente: captura o iframe autorreferenciado (a probar)
+    hasPanel: false, // sin backend/panel de control — usado por temas Default y Groovy
+
+    docsContent: portfolioDoc,
+    docsFilename: "portfolio-documentacion-tecnica.md",
+
+    features: [
+      {
+        id: "portfolio-f1",
+        title: "Arquitectura multi-tema",
+        description:
+          "4 rutas (/, /features, /panels, /about), cada una con su propio Layout y hoja de estilos independiente, compartiendo la misma fuente de datos.",
+        image: null,
+      },
+      {
+        id: "portfolio-f2",
+        title: "Demos en vivo con auth aislada",
+        description:
+          "Sistema de sandbox que autentica visitantes como roles reales de CaminoSantiago.app mediante un token propio firmado, sin tocar la autenticación de producción.",
+        image: null,
+      },
+      {
+        id: "portfolio-f3",
+        title: "Panel de administración desacoplado por rol",
+        description:
+          "El backend reconoce el token demo y aísla completamente los datos de prueba de los reales según el rol.",
+        image: null,
+      },
+      {
+        id: "portfolio-f4",
+        title: "Documentación técnica embebida",
+        description:
+          "Modal con estética de editor de código que renderiza la documentación de cada proyecto directamente en el navegador.",
+        image: null,
+      },
+      {
+        id: "portfolio-f5",
+        title: "Easter egg: Ahorcado bilingüe",
+        description:
+          "Mini-juego en React puro (ES/EN) escondido tras una interacción oculta; fue el primer proyecto independiente en React.",
+        image: null,
+      },
+      {
+        id: "portfolio-f6",
+        title: "Sin backend propio",
+        description:
+          "100% frontend — la lógica vive en el cliente; los paneles de control que se muestran pertenecen a las apps reales.",
         image: null,
       },
     ],

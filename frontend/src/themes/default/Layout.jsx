@@ -160,13 +160,16 @@ const ProjectRow = ({ project, index, isExpanded, onToggle }) => {
               >
                 Features →
               </Link>
-              <Link
-                to={`/panels#${project.id}`}
-                className="d-panel-link"
-                onClick={(e) => e.stopPropagation()}
-              >
-                Control Panels →
-              </Link>
+
+              {project.hasPanel !== false && (
+                <Link
+                  to={`/panels#${project.id}`}
+                  className="d-panel-link"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  Control Panels →
+                </Link>
+              )}
               {project.docsContent && (
                 <button
                   className="d-panel-link d-panel-link--docs"

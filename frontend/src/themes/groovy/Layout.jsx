@@ -190,30 +190,34 @@ const PanelModal = ({ project, onClose }) => (
 
 const ProjectsGrid = ({ onOpenPanel }) => (
   <div className="g-grid">
-    {projects.map((project, index) => (
-      <div
-        key={project.id}
-        id={project.id}
-        className="g-card"
-        onClick={() => onOpenPanel(project)}
-      >
-        <div className="g-card-media">
-          <PhoneMockup image={project.image} title={project.title} />
+    {projects
+      .filter((project) => project.hasPanel !== false)
+      .map((project, index) => (
+        <div
+          key={project.id}
+          id={project.id}
+          className="g-card"
+          onClick={() => onOpenPanel(project)}
+        >
+          <div className="g-card-media">
+            <PhoneMockup image={project.image} title={project.title} />
+          </div>
+          <div className="g-card-info">
+            <div className="g-card-num">
+              {String(index + 1).padStart(2, "0")}
+            </div>
+            <h3 className="g-card-title">{project.title}</h3>
+            {(index === 0 || index === 1 || index === 3) && (
+              <p className="g-card-desc">{project.description}</p>
+            )}
+            <ul className="g-card-tags">
+              {project.tech?.slice(0, 3).map((t) => (
+                <li key={t}>{t}</li>
+              ))}
+            </ul>
+          </div>
         </div>
-        <div className="g-card-info">
-          <div className="g-card-num">{String(index + 1).padStart(2, "0")}</div>
-          <h3 className="g-card-title">{project.title}</h3>
-          {(index === 0 || index === 1 || index === 3) && (
-            <p className="g-card-desc">{project.description}</p>
-          )}
-          <ul className="g-card-tags">
-            {project.tech?.slice(0, 3).map((t) => (
-              <li key={t}>{t}</li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    ))}
+      ))}
   </div>
 );
 
