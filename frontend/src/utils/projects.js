@@ -401,7 +401,7 @@ export const projects = [
     tech: ["Vite", "React", "React Router", "CSS multi-tema", "Vercel"],
     url: "https://portfolio-eta-neon-4zzt6gqpo1.vercel.app/", // ajustar a la URL real de producción
     repo: null,
-    image: null, // pendiente: captura o iframe autorreferenciado (a probar)
+    image: portfolioImg,
     hasPanel: false, // sin backend/panel de control — usado por temas Default y Groovy
 
     docsContent: portfolioDoc,
@@ -413,7 +413,7 @@ export const projects = [
         title: "Arquitectura multi-tema",
         description:
           "4 rutas (/, /features, /panels, /about), cada una con su propio Layout y hoja de estilos independiente, compartiendo la misma fuente de datos.",
-        image: portfolioImg,
+        image: null,
       },
       {
         id: "portfolio-f2",
