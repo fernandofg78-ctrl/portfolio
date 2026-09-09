@@ -5,6 +5,7 @@ import mazarifeImg from "../assets/images/villar.webp";
 import santiagoImg from "../assets/images/camino-2.webp";
 import tapaImg from "../assets/images/tapa-2.webp";
 import obrasImg from "../assets/images/obras-d-nivel-1.webp";
+import portfolioImg from "../assets/images/portfolio.webp";
 
 //features para brutaliam
 import superAdminObrasd from "../assets/images/features-brutal/obras-superadmin.webp";
@@ -398,7 +399,7 @@ export const projects = [
     description:
       "Portfolio multi-tema construido como proyecto en sí mismo: 4 rutas con identidad visual propia, sistema de demos en vivo con autenticación aislada en sandbox, y documentación técnica embebida de cada proyecto.",
     tech: ["Vite", "React", "React Router", "CSS multi-tema", "Vercel"],
-    url: "https://fer.dev/", // ajustar a la URL real de producción
+    url: "https://portfolio-eta-neon-4zzt6gqpo1.vercel.app/", // ajustar a la URL real de producción
     repo: null,
     image: null, // pendiente: captura o iframe autorreferenciado (a probar)
     hasPanel: false, // sin backend/panel de control — usado por temas Default y Groovy
@@ -412,7 +413,7 @@ export const projects = [
         title: "Arquitectura multi-tema",
         description:
           "4 rutas (/, /features, /panels, /about), cada una con su propio Layout y hoja de estilos independiente, compartiendo la misma fuente de datos.",
-        image: null,
+        image: portfolioImg,
       },
       {
         id: "portfolio-f2",
