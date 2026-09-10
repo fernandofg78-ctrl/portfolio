@@ -109,6 +109,18 @@ export const projects = [
         image: null,
       },
     ],
+    demoRoles: [
+      {
+        role: "tenant",
+        label: "Tenant",
+        url: "https://obras-de-nivel-sandbox.vercel.app/demo-login?role=tenant",
+      },
+      {
+        role: "superadmin",
+        label: "Superadmin",
+        url: "https://obras-de-nivel-sandbox.vercel.app/demo-login?role=superadmin",
+      },
+    ],
   },
   {
     id: "camino",
@@ -221,11 +233,7 @@ export const projects = [
         label: "Albergue",
         url: "https://camino-web-sandbox.vercel.app/demo-login?role=albergue",
       },
-      {
-        role: "negocio",
-        label: "Negocio",
-        url: "https://camino-web-sandbox.vercel.app/demo-login?role=negocio",
-      },
+
       {
         role: "admin",
         label: "Admin",
