@@ -10,6 +10,7 @@
   align-items: center;
   justify-content: center;
   padding: 2rem;
+  box-sizing: border-box;
 }
 
 .dc-panel {
@@ -22,6 +23,7 @@
   border-radius: 6px;
   overflow: hidden;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
 }
 
 /* ─── Barra de pestaña ──────────────────────────────────── */
@@ -34,6 +36,7 @@
   border-bottom: 1px solid #1a1a1a;
   padding: 0.6rem 0.75rem 0.6rem 0;
   flex-shrink: 0;
+  gap: 0.5rem;
 }
 
 .dc-tab-label {
@@ -43,6 +46,8 @@
   background: #1e1e1e;
   padding: 0.4rem 1rem;
   border-top: 2px solid #4ec9b0;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .dc-tab-icon {
@@ -54,12 +59,17 @@
   border-radius: 2px;
   padding: 0.05rem 0.25rem;
   font-family: "Consolas", "Fira Code", monospace;
+  flex-shrink: 0;
 }
 
 .dc-tab-filename {
   font-size: 0.8rem;
   color: #d4d4d4;
   font-family: "Consolas", "Fira Code", monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
 }
 
 .dc-close {
@@ -70,6 +80,7 @@
   cursor: pointer;
   transition: color 0.2s ease;
   padding: 0.2rem 0.5rem;
+  flex-shrink: 0;
 }
 
 .dc-close:hover {
@@ -80,6 +91,8 @@
 
 .dc-body {
   display: flex;
+  flex: 1;
+  min-height: 0;
   overflow-y: auto;
   font-family: "Consolas", "Fira Code", monospace;
   font-size: 0.85rem;
@@ -105,6 +118,9 @@
   padding: 1.5rem 1.75rem 1.5rem 1rem;
   color: #d4d4d4;
   border-left: 1px solid #2d2d2d;
+  min-width: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 /* ─── Elementos Markdown ────────────────────────────────── */
@@ -159,6 +175,7 @@
   padding: 0.1rem 0.35rem;
   border-radius: 3px;
   font-size: 0.8rem;
+  word-break: break-word;
 }
 
 .dc-content pre {
@@ -167,10 +184,16 @@
   border-radius: 4px;
   overflow-x: auto;
   margin: 0.5rem 0;
+  max-width: 100%;
+}
+
+.dc-content pre code {
+  word-break: normal;
 }
 
 .dc-content a {
   color: #4ec9b0;
+  word-break: break-all;
 }
 
 .dc-content hr {
@@ -179,10 +202,15 @@
   margin: 1.25rem 0;
 }
 
+/* Wrapper con scroll horizontal para tablas anchas */
 .dc-content table {
   border-collapse: collapse;
   margin: 0.5rem 0;
   font-size: 0.8rem;
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+  white-space: nowrap;
 }
 
 .dc-content th,
@@ -198,7 +226,52 @@
 /* ─── Responsive ────────────────────────────────────────── */
 
 @media (max-width: 600px) {
+  .dc-overlay {
+    padding: 0.75rem;
+  }
+
+  .dc-panel {
+    max-height: 90vh;
+    border-radius: 4px;
+  }
+
   .dc-gutter {
     display: none;
+  }
+
+  .dc-tab {
+    padding: 0.5rem 0.5rem 0.5rem 0;
+  }
+
+  .dc-tab-label {
+    padding: 0.35rem 0.75rem;
+  }
+
+  .dc-tab-filename {
+    font-size: 0.72rem;
+  }
+
+  .dc-body {
+    font-size: 0.8rem;
+    line-height: 1.6;
+  }
+
+  .dc-content {
+    padding: 1rem 1rem 1.25rem;
+    border-left: none;
+  }
+}
+
+@media (max-width: 380px) {
+  .dc-overlay {
+    padding: 0.4rem;
+  }
+
+  .dc-tab-filename {
+    font-size: 0.68rem;
+  }
+
+  .dc-content {
+    padding: 0.85rem;
   }
 }
