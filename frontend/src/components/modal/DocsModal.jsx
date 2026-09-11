@@ -2,6 +2,7 @@
 // Visor de documentación técnica en Markdown, estética tipo editor de código
 
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import "./DocsModal.css";
 
 export const DocsModal = ({ content, filename, onClose }) => {
@@ -32,7 +33,7 @@ export const DocsModal = ({ content, filename, onClose }) => {
             ))}
           </div>
           <div className="dc-content">
-            <ReactMarkdown>{content}</ReactMarkdown>
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
           </div>
         </div>
       </div>
