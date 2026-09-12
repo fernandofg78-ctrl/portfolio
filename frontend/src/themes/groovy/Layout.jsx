@@ -260,7 +260,7 @@ export const Layout = () => {
             Construyo apps que <em>funcionan en producción</em>.<br />
             React, Node, MongoDB.
             <br />
-            Freelance, disponible para nuevos proyectos.
+           Buscando mi próximo reto en equipo.
           </p>
           <div className="g-stats">
             {STATS.map(({ num, label }) => (
